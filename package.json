@@ -1,26 +1,14 @@
 {
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
-    "eslint": "^8.43.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "prettier": "^2.8.8"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,json}": [
-      "eslint . --fix",
-      "prettier --write ."
-    ]
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "^2.1.2"
   },
   "scripts": {
-    "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
-    "nodemon": "nodemon server.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "test": "npm run lint",
+    "lint": "npx eslint **/*.js",
+    "nodemon": "nodemon server.js",
+    "start": "node server.js"
   },
   "name": "character-generator",
   "version": "1.0.0",

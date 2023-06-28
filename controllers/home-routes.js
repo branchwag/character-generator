@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Gallery, Painting } = require('../models');
 // TODO: Import the custom middleware
-const authorized = require("../utils/auth");
+const authorized = require('../utils/auth');
 
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     });
 
     const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+      gallery.get({ plain: true }),
     );
 
     res.render('homepage', {
@@ -36,29 +36,29 @@ router.get('/gallery/:id', authorized, async (req, res) => {
   // if (!req.session.loggedIn) {
   //   res.redirect('/login');
   // } else {
-    // If the user is logged in, allow them to view the gallery
-    try {
-      const dbGalleryData = await Gallery.findByPk(req.params.id, {
-        include: [
-          {
-            model: Painting,
-            attributes: [
-              'id',
-              'title',
-              'artist',
-              'exhibition_date',
-              'filename',
-              'description',
-            ],
-          },
-        ],
-      });
-      const gallery = dbGalleryData.get({ plain: true });
-      res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
+  // If the user is logged in, allow them to view the gallery
+  try {
+    const dbGalleryData = await Gallery.findByPk(req.params.id, {
+      include: [
+        {
+          model: Painting,
+          attributes: [
+            'id',
+            'title',
+            'artist',
+            'exhibition_date',
+            'filename',
+            'description',
+          ],
+        },
+      ],
+    });
+    const gallery = dbGalleryData.get({ plain: true });
+    res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
   // }
 });
 
@@ -69,17 +69,17 @@ router.get('/painting/:id', authorized, async (req, res) => {
   // if (!req.session.loggedIn) {
   //   res.redirect('/login');
   // } else {
-    // If the user is logged in, allow them to view the painting
-    try {
-      const dbPaintingData = await Painting.findByPk(req.params.id);
+  // If the user is logged in, allow them to view the painting
+  try {
+    const dbPaintingData = await Painting.findByPk(req.params.id);
 
-      const painting = dbPaintingData.get({ plain: true });
+    const painting = dbPaintingData.get({ plain: true });
 
-      res.render('painting', { painting, loggedIn: req.session.loggedIn });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
+    res.render('painting', { painting, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
   // }
 });
 
