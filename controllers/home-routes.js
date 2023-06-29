@@ -1,90 +1,30 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
-// const sequelize = require('../config/connection');
-const authorized = require('../utils/auth');
+const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
-// GET all galleries for homepage
-router.get('/', async (req, res) => {
+// Prevent non logged in users from viewing the homepage
+router.get('/', withAuth, async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
-      include: [
-        {
-          model: Painting,
-          attributes: ['filename', 'description'],
-        },
-      ],
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true }),
-    );
+    const users = userData.map((project) => project.get({ plain: true }));
 
     res.render('homepage', {
-      galleries,
-      loggedIn: req.session.loggedIn,
+      users,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
-});
-
-// GET one gallery
-// TODO: Replace the logic below with the custom middleware
-router.get('/gallery/:id', authorized, async (req, res) => {
-  // If the user is not logged in, redirect the user to the login page
-  // if (!req.session.loggedIn) {
-  //   res.redirect('/login');
-  // } else {
-  // If the user is logged in, allow them to view the gallery
-  try {
-    const dbGalleryData = await Gallery.findByPk(req.params.id, {
-      include: [
-        {
-          model: Painting,
-          attributes: [
-            'id',
-            'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
-          ],
-        },
-      ],
-    });
-    const gallery = dbGalleryData.get({ plain: true });
-    res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-  // }
-});
-
-// GET one painting
-// TODO: Replace the logic below with the custom middleware
-router.get('/painting/:id', authorized, async (req, res) => {
-  // If the user is not logged in, redirect the user to the login page
-  // if (!req.session.loggedIn) {
-  //   res.redirect('/login');
-  // } else {
-  // If the user is logged in, allow them to view the painting
-  try {
-    const dbPaintingData = await Painting.findByPk(req.params.id);
-
-    const painting = dbPaintingData.get({ plain: true });
-
-    res.render('painting', { painting, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-  // }
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  // If a session exists, redirect the request to the homepage
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
