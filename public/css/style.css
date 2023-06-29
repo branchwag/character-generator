@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
-  --tertiary: #5e877f;
+  --primary: #f2d7ac;
+  --secondary: #cfcfcf;
+  --tertiary: #f2d7ac;
   --quatrinary: #6c6b67;
-  --light: #e3e4e3;
-  --dark: #182c23;
+  --light: #080808;
+  --dark: #f2d7ac;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
+}
+
+* {
+  font-family: 'Homemade Apple', cursive;
 }
 
 body {
