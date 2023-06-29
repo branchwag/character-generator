@@ -1,5 +1,7 @@
 const chatgptkey = process.env.API_KEY;
+const router = require('express').Router();
 
+//http://localhost:3001/api/chatgpt/completions
 router.post('/completions', async (req, res) => {
   const options = {
     method: 'POST',
@@ -8,8 +10,8 @@ router.post('/completions', async (req, res) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: 'Generate a cool character name' }],
+      model: 'text-davinci-003',
+      prompt: 'Generate a cool fantasy character name from the 1800s',
       max_tokens: 100,
     }),
   };
@@ -24,3 +26,5 @@ router.post('/completions', async (req, res) => {
     console.error(error);
   }
 });
+
+module.exports = router;
