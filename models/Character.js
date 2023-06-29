@@ -26,20 +26,20 @@ Character.init(
       allowNull:false,
       primaryKey:true,
     },
-    character_class: {
-      type: DataTypes.STRING,
+    class_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'class',
-        key: 'class_name',
+        key: 'id',
       },
     },
-    character_race: {
-      type: DataTypes.STRING,
+    race_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'race',
-        key: 'race_name',
+        key: 'id',
       },
     },
   },

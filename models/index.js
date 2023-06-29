@@ -8,7 +8,8 @@ Class.hasMany(Character, {
 });
 
 Character.belongsTo(Class, {
-  foreignKey: 'class_id'
+  foreignKey: 'class_id',
+  onDelete: 'CASCADE',
 })
 
 Race.hasMany(Character, {
@@ -16,7 +17,8 @@ Race.hasMany(Character, {
 });
 
 Character.belongsTo(Race, {
-  foreignKey: 'race_id'
+  foreignKey: 'race_id',
+  onDelete: 'CASCADE',
 });
 
 module.exports = { Character, Race, Class };
