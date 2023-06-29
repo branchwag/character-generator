@@ -41,3 +41,22 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Server listening on port ${PORT}. http://localhost:${PORT}`),
   );
 });
+
+
+// const chatgptkey = process.env.API_KEY;
+
+// app.post('/completions', (req, res) => {
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       "Authorization": `Bearer ${chatgptkey}`,
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       model: "gpt-3.5-turbo",
+//       messages: [{ role: "user", content: "Generate a cool character name"}],
+//       max_tokens: 100,
+//     })
+//     }
+//   }
+// );
