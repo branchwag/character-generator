@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Gallery, Painting } = require('../models');
-// TODO: Import the custom middleware
+// const sequelize = require('../config/connection');
 const authorized = require('../utils/auth');
 
 // GET all galleries for homepage
