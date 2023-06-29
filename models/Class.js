@@ -20,8 +20,8 @@ Class.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'class',
-  },
+    modelName: 'class'
+  }
 );
 
 module.exports = Class;
