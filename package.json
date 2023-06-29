@@ -8,7 +8,8 @@
     "test": "npm run lint",
     "lint": "npx eslint **/*.js",
     "nodemon": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "name": "character-generator",
   "version": "1.0.0",
