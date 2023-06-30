@@ -2,19 +2,27 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // CREATE new user
+// POST api/users
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
+    // const dbUserData = await User.create({
+    //   username: req.body.username,
+    //   email: req.body.email,
+    //   password: req.body.password,
+    // });
 
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
+
+    //   res.status(200).json(dbUserData);
+    // });
+    const userData = await User.create(req.body);
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-      res.status(200).json(dbUserData);
-    });
+      res.status(200).json(userData)
+    })
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -22,6 +30,7 @@ router.post('/', async (req, res) => {
 });
 
 // Login
+// POST /api/users/login
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -60,10 +69,11 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
+// POST /api/users/logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.status(204).end()
     });
   } else {
     res.status(404).end();
