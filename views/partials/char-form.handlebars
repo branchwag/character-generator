@@ -1,18 +1,23 @@
 <form>
-  <div class='form-group'>
-    <label for='exampleFormControlSelect2'>Please select your character's setting!</label>
-    <select multiple class='form-control' id='exampleFormControlSelect2'>
-      <option>Fantasy</option>
-      <option>Science Fiction</option>
-      <option>Other</option>
-    </select>
-  </div>
-  <div class='form-group'>
-    <label for='exampleFormControlTextarea1'>If you selected 'other' please list the setting below.</label>
-    <textarea
-      class='form-control'
-      id='exampleFormControlTextarea1'
-      rows='3'
-    ></textarea>
-  </div>
+  {{#if loggedIn}}
+    <div class='form-group'>
+      <label for='exampleFormControlSelect2'>Please select your character's
+        setting!</label>
+      <select multiple class='form-control' id='exampleFormControlSelect2'>
+        <button>Fantasy</button>
+        <button>Science Fiction</button>
+        <button>Other</button>
+      </select>
+    </div>
+    <div class='form-group'>
+      <label for='exampleFormControlTextarea1'>If you selected 'other' please
+        list the setting below.</label>
+      <textarea
+        class='form-control'
+        id='exampleFormControlTextarea1'
+        rows='3'
+      ></textarea>
+    </div>
+  {{/if}}
 </form>
+<script src='../../public/js/char-form.js'></script>
