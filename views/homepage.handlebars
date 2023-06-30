@@ -14,12 +14,9 @@ A CARD leading to character page }}
   </head>
   <body>
     {{#if loggedIn}}
-      <h1>Previous Character</h1>
-      <h1>Build New Character</h1>
-
-    {{else}}
+      <button>Previous Character</button>
+      <button>Build New Character</button>
     {{/if}}
-    <a href='/login'>login</a>
     <script src='/js/chatgptscriptgetbackstory.js'></script>
     <script src='/js/chatgptscriptgetname.js'></script>
   </body>
