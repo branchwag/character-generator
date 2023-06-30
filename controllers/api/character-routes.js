@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Character } = require('../../models');
 
+// POST /api/characters
 router.post('/', async (req, res) => {
     try {
         const charData = await Character.create(req.body)
