@@ -16,3 +16,5 @@ const getName = async () => {
     console.error();
   }
 };
+
+getName();

@@ -17,3 +17,5 @@ const getBackstory = async () => {
     console.error();
   }
 };
+
+getBackstory();
