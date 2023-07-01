@@ -6,7 +6,7 @@ const getBackstory = async () => {
   const options = {
     method: 'POST',
     body: JSON.stringify({
-      prompt: 'Please describe a sunny day.',
+      prompt: 'Please describe a sunny day.', //get output from saveformdata file
       // 'Generate an interesting backstory for a fantasty character from the 1800s.',
     }),
     headers: {
