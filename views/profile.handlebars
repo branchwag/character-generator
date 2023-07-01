@@ -8,7 +8,6 @@
   </head>
 
 <body>
-  {{#if loggedIn}}
 <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
@@ -53,7 +52,9 @@
     </div>
   </div>
 </div>
-{{/if}}
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 {{!-- <script src="./js/profile.js"></script> --}}
 

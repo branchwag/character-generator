@@ -13,7 +13,7 @@
 
 * {
   /* font-family: 'Homemade Apple', cursive; */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
@@ -86,12 +86,13 @@ nav a:hover {
 .btn-no-style {
   background: none;
   border: none;
-  padding: 0;
+  padding: 0px;
   cursor: pointer;
   text-decoration: none;
   font-size: 100%;
   transition: color 0.1s;
   margin-left: 16px;
+  margin-top: 14px;
 }
 
 img {

@@ -50,6 +50,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/logout', (req, res) => {
+  // Destroy the session to log the user out
+  req.session.destroy((err) => {
+    if (err) {
+      res.status(500).json(err);
+    } else {
+      res.redirect('/login');
+    }
+  });
+});
+
 router.get('/char-form', (req, res) => {
   res.render('partials/char-form', {
     loggedIn: req.session.loggedIn,
