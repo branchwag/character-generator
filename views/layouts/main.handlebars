@@ -13,14 +13,16 @@
     <header>
       <h1>Welcome to LegendSmith!</h1>
     </header>
-    <nav>
-      <a href='/'>Home</a>
-      {{#if loggedIn}}
-        <button id='logout' class='btn-no-style'>Logout</button>
-      {{!-- {{else}}
-        <a href='/login'>Login</a> --}}
-      {{/if}}
-    </nav>
+        <nav>
+          <a href="/">Home</a>
+          {{#if loggedIn}}
+            <form id="logout-form" action="/logout" method="GET">
+              <button type="submit" id="logout" class="btn-no-style">Logout</button>
+            </form>
+          {{else}}
+            <a href="/login">Login</a>
+          {{/if}}
+        </nav>
     <main>
       {{!-- <aside>
         <h2>Enjoy!</h2>
@@ -34,6 +36,6 @@
   </body>
     </main>
     {{#if loggedIn}}
-      <script src='/js/logout.js'></script>
+      <script src="/js/logout.js"></script>
     {{/if}}
 </html>
