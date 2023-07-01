@@ -15,9 +15,15 @@ A CARD leading to character page }}
   <body>
     {{#if loggedIn}}
       <button>Previous Character</button>
-      <button>Build New Character</button>
+      <a href='./partials/char-form.handlebars'><button>Build New Character</button></a>
+      <p id='testappend'>P text for LB testing with chatgpt</p>
+      {{! <div class='input-container'>
+        <input />
+        <div id='submit'>➢</div>
+      </div> }}
     {{/if}}
+
     <script src='/js/chatgptscriptgetbackstory.js'></script>
-    <script src='/js/chatgptscriptgetname.js'></script>
+    {{! <script src='/js/chatgptscriptgetname.js'></script> }}
   </body>
 </html>
