@@ -24,8 +24,11 @@ A CARD leading to character page }}
         <div id='submit'>➢</div>
       </div> }}
     {{/if}}
-
     <script src='/js/chatgptscriptgetbackstory.js'></script>
+    <script>
+      function loadCharForm() { window.location.href = '/char-form'; }
+    </script>
+
     {{! <script src='/js/chatgptscriptgetname.js'></script> }}
     <script>
       function loadProfileForm() { window.location.href = '/profile'; }

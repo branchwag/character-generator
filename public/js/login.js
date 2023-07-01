@@ -54,7 +54,7 @@ const signupFormHandler = async (event) => {
     alert('please enter all three categories');
   }
 };
-console.log('loginFormElement', document.querySelector('.login-form'));
+// console.log('loginFormElement', document.querySelector('.login-form'));
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
