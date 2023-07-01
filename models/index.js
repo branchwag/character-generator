@@ -2,7 +2,7 @@
 const Character = require('./Character');
 const Race = require('./Race');
 const Class = require('./Class');
-const User = require('./User')
+const User = require('./User');
 
 Class.hasMany(Character, {
   foreignKey: 'class_id',
@@ -11,7 +11,7 @@ Class.hasMany(Character, {
 Character.belongsTo(Class, {
   foreignKey: 'class_id',
   onDelete: 'CASCADE',
-})
+});
 
 Race.hasMany(Character, {
   foreignKey: 'race_id',
