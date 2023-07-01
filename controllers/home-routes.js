@@ -34,6 +34,12 @@ router.get('/homepage', (req, res) => {
   });
 });
 
+router.get('/profile', (req, res) => {
+  res.render('profile', {
+    loggedIn: req.session.loggedIn,
+  });
+});
+
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.loggedIn) {
