@@ -1,5 +1,8 @@
+const chargender = document.getElementById('chargender');
+
 function saveInput() {
   console.log('Input has been saved');
+  console.log(chargender.value);
 }
 
 //sends user to output page
