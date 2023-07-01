@@ -1,7 +1,7 @@
 //need to create string from form inputs to then send to chatgpt.
 
 //get data from database to make prompt actually
-const backstoryPrompt = 'generate a cool fantasty character backstory';
+const backstoryPrompt = 'Generate a cool fantasty character backstory';
 
 const parentElement = document.querySelector('#backstoryappend');
 // const { backstoryPrompt } = require('./saveformdata.js');

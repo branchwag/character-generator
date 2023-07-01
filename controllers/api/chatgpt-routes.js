@@ -12,6 +12,8 @@ router.post('/namegen', async (req, res) => {
     body: JSON.stringify({
       model: 'text-davinci-003',
       prompt: req.body.prompt,
+      // n: 1,
+      // stop: '\n',
       // prompt: 'Generate a cool fantasy character name from the 1800s',
       max_tokens: 100,
     }),
