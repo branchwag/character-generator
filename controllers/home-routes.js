@@ -45,7 +45,9 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/char-form', (req, res) => {
-  res.render('char-form');
+  res.render('partials/char-form', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 module.exports = router;
