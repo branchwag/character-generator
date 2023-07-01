@@ -14,7 +14,9 @@ A CARD leading to character page }}
   </head>
   <body>
     {{#if loggedIn}}
-      <button>Previous Character</button>
+      <a href='#' onclick='loadProfileForm()'><button class='build-char'>View
+          Profile</button></a>
+
       <a href='./partials/char-form.handlebars'><button>Build New Character</button></a>
       <p id='testappend'>P text for LB testing with chatgpt</p>
       {{! <div class='input-container'>
@@ -25,5 +27,8 @@ A CARD leading to character page }}
 
     <script src='/js/chatgptscriptgetbackstory.js'></script>
     {{! <script src='/js/chatgptscriptgetname.js'></script> }}
+    <script>
+      function loadProfileForm() { window.location.href = '/profile'; }
+    </script>
   </body>
 </html>
