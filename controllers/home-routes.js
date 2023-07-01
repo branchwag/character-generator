@@ -67,4 +67,10 @@ router.get('/char-form', (req, res) => {
   });
 });
 
+router.get('/output', (req, res) => {
+  res.render('partials/output', {
+    loggedIn: req.session.loggedIn,
+  });
+});
+
 module.exports = router;
