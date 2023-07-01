@@ -44,4 +44,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/char-form', (req, res) => {
+  res.render('char-form');
+});
+
 module.exports = router;
