@@ -16,23 +16,21 @@
       <a href='/'>Home</a>
       {{#if loggedIn}}
         <button id='logout' class='btn-no-style'>Logout</button>
-      {{else}}
-        <a href='/login'>Login</a>
+      {{!-- {{else}}
+        <a href='/login'>Login</a> --}}
       {{/if}}
     </nav>
     <main>
-      <aside>
+      {{!-- <aside>
         <h2>Enjoy!</h2>
-      </aside>
+      </aside> --}}
     <div class='gallery'>
         {{{body}}}
-      <script src='/js/login.js'></script>
+      {{!-- <script src='/js/login.js'></script> --}}
     </div>
   </body>
     </main>
     {{#if loggedIn}}
       <script src='/js/logout.js'></script>
     {{/if}}
-<script src='/js/chatgptscriptgetbackstory.js'></script>
-<script src='/js/chatgptscriptgetname.js'></script>
 </html>
