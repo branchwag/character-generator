@@ -1,4 +1,4 @@
-//need to create string from form inputs to then send to chatgpt. 
+//need to create string from form inputs to then send to chatgpt.
 
 const parentElement = document.querySelector('#backstoryappend');
 
