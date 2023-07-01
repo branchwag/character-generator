@@ -1,11 +1,13 @@
-const parentElement = document.querySelector('#testappend');
+//need to create string from form inputs to then send to chatgpt. 
+
+const parentElement = document.querySelector('#backstoryappend');
 
 const getBackstory = async () => {
   const options = {
     method: 'POST',
     body: JSON.stringify({
-      prompt:
-        'Generate an interesting backstory for a fantasty character from the 1800s.',
+      prompt: 'Please describe a sunny day.',
+      // 'Generate an interesting backstory for a fantasty character from the 1800s.',
     }),
     headers: {
       'Content-Type': 'application/json',

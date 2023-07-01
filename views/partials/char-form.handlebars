@@ -1,5 +1,5 @@
+{{#if loggedIn}}
 <form>
-  {{#if loggedIn}}
     <div class='form-group'>
       <label for='exampleFormControlSelect2'>Please select your character's
         setting!</label>
@@ -61,8 +61,8 @@
         <button>Bald</button>
       </select>
     </div>
-    <a href='#' onclick='loadOutput()'><button class='output'>Build New
+    <a href='/output' onclick='loadOutput()'><button class='gencharbutton'>Build New
         Character</button></a>
-  {{/if}}
 </form>
 <script>function loadOutput() { window.location.href = '/output'; }</script>
+  {{/if}}
