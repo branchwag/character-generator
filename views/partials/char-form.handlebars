@@ -19,53 +19,59 @@
       ></textarea>
     </div>
     <div class='form-group'>
-      <label for='exampleFormControlTextarea1'>Please list your character's
-        gender</label>
-      <textarea
-        class='form-control'
-        id='chargender'
-        rows='3'
-      ></textarea>
+      <label for='exampleFormControlTextarea1'>What is your character's gender?</label>
+      <input type="text" class="form-control" id="gender" placeholder="Please enter a gender"></textarea>
     </div>
     <div class='form-group'>
       <label for='exampleFormControlTextarea1'>What race is your character?</label>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Choose your race
-        </button>
-        <ul class="dropdown-menu">
-          <li>Race 1</li>
-          <li>Race 2</li>
-          <li>Race 3</li>
-      </div>
+      <select class="form-select" id="race"> 
+        <option selected>Choose your race</option>
+        <option value="1">Race 1</option>
+        <option value="2">Race 2</option>
+        <option value="3">Race 3</option>
+      </select>
+    </div>
+    <div class='form-group'>
+      <label for='exampleFormControlTextarea1'>What class is your character?</label>
+      <select class="form-select" id="class"> 
+        <option selected>Choose your class</option>
+        <option value="1">Class 1</option>
+        <option value="2">Class 2</option>
+        <option value="3">Class 3</option>
+      </select>
     </div>
     <div class='form-group'>
       <label for='exampleFormControlSelect2'>What is your character's eye color?</label>
-      <select multiple class='form-control' id='exampleFormControlSelect2'>
-        <button>Blue</button>
-        <button>Green</button>
-        <button>Brown</button>
-        <button>Hazel</button>
-        <button>Purple</button>
+      <select class="form-select">
+        <option selected>Choose your eye color</option>
+        <option value="1">Blue</option>
+        <option value="2">Green</option>
+        <option value="3">Brown</option>
+        <option value="4">Hazel</option>
+        <option value="5">Purple</option>
+        <option value="6">Red</option>
+        <option value="7">Black</option>
+        <option value="8">Yellow</option>
+        <option value="9">Gray</option>
       </select>
     </div>
     <div class='form-group'>
-      <label for='exampleFormControlSelect2'>What is your character's hair
-        color?</label>
-      <select multiple class='form-control' id='exampleFormControlSelect2'>
-        <button>Brown</button>
-        <button>Black</button>
-        <button>Blonde</button>
-        <button>Gray</button>
-        <button>White</button>
-        <button>Bald</button>
+      <label for='exampleFormControlSelect2'>What is your character's hair color?</label>
+      <select class="form-select">
+        <option selected>Choose your hair color</option>
+        <option value="1">Blue</option>
+        <option value="2">Green</option>
+        <option value="3">Brown</option>
+        <option value="4">Blonde</option>
+        <option value="5">Purple</option>
+        <option value="6">Red</option>
+        <option value="7">Black</option>
+        <option value="8">White</option>
+        <option value="9">Gray</option>
+        <option value="10">Bald</option>
       </select>
     </div>
-</form>
-    <a href='/output' onclick='loadOutput()'>
-    <button class='gencharbutton'>Build New
-        Character</button>
-        </a>
-<script>function loadOutput() { window.location.href = '/output'; }</script>
-{{!-- <script src='/js/saveformdata.js'></script> --}}
+    <input type="submit" class="btn btn-danger" id="submitBtn" value="Discover your character">
   {{/if}}
+</form>
+<script src='/js/char-form.js'></script>
