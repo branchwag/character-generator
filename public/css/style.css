@@ -16,6 +16,10 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#pagetitle {
+  font-family: 'Homemade Apple', cursive;
+}
+
 body {
   font-family: Arial;
   margin: 0;
