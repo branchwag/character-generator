@@ -4,5 +4,5 @@ const charFormHandler = async (event) => {
     event.preventDefault();
 
     // Collect values from the character form
-    
+    const 
 }

@@ -11,4 +11,10 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/', async (req,res) => {
+  const charData = await Character.findAll();
+  const characters = charData.map((Character) => Character.get({ plain:true }));
+  res.send(characters)
+})
+
 module.exports = router;
