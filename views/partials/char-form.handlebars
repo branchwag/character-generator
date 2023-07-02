@@ -1,9 +1,9 @@
+{{#if loggedIn}}
 <form>
-  {{#if loggedIn}}
     <div class='form-group'>
       <label for='exampleFormControlSelect2'>Please select your character's
         setting!</label>
-      <select multiple class='form-control' id='exampleFormControlSelect2'>
+      <select multiple class='form-control' id='charsetting'>
         <button>Fantasy</button>
         <button>Science Fiction</button>
         <button>Other</button>
@@ -14,7 +14,7 @@
         list the setting below.</label>
       <textarea
         class='form-control'
-        id='exampleFormControlTextarea1'
+        id='settingadditional'
         rows='3'
       ></textarea>
     </div>
@@ -23,17 +23,21 @@
         gender</label>
       <textarea
         class='form-control'
-        id='exampleFormControlTextarea1'
+        id='chargender'
         rows='3'
       ></textarea>
     </div>
-        <div class='form-group'>
+    <div class='form-group'>
       <label for='exampleFormControlTextarea1'>What race is your character?</label>
-      <textarea
-        class='form-control'
-        id='exampleFormControlTextarea1'
-        rows='3'
-      ></textarea>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Choose your race
+        </button>
+        <ul class="dropdown-menu">
+          <li>Race 1</li>
+          <li>Race 2</li>
+          <li>Race 3</li>
+      </div>
     </div>
     <div class='form-group'>
       <label for='exampleFormControlSelect2'>What is your character's eye color?</label>
@@ -45,8 +49,9 @@
         <button>Purple</button>
       </select>
     </div>
-        <div class='form-group'>
-      <label for='exampleFormControlSelect2'>What is your character's hair color?</label>
+    <div class='form-group'>
+      <label for='exampleFormControlSelect2'>What is your character's hair
+        color?</label>
       <select multiple class='form-control' id='exampleFormControlSelect2'>
         <button>Brown</button>
         <button>Black</button>
@@ -56,5 +61,11 @@
         <button>Bald</button>
       </select>
     </div>
-  {{/if}}
 </form>
+    <a href='/output' onclick='loadOutput()'>
+    <button class='gencharbutton'>Build New
+        Character</button>
+        </a>
+<script>function loadOutput() { window.location.href = '/output'; }</script>
+{{!-- <script src='/js/saveformdata.js'></script> --}}
+  {{/if}}

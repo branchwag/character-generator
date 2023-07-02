@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      document.location.replace('/homepage');
     } else {
       alert(response.statusText);
     }
@@ -46,7 +46,7 @@ const signupFormHandler = async (event) => {
     console.log(response);
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/homepage');
     } else {
       alert(response.statusText);
     }
@@ -54,7 +54,7 @@ const signupFormHandler = async (event) => {
     alert('please enter all three categories');
   }
 };
-
+// console.log('loginFormElement', document.querySelector('.login-form'));
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
