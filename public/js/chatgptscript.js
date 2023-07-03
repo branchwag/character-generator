@@ -5,6 +5,20 @@
 
 //http://localhost:3001/api/characters
 
+//JSON for testing below for easy copy/paste via insomnia
+
+// {
+// 	"character_gender": "female",
+// 	"eye_color": "purple",
+// 	"hair_color": "blue",
+// 	"class_name": "cleric",
+// 	"race_name": "elf",
+// 	"class_id": 1,
+// 	"race_id": 2
+// }
+
+let promptArray = [];
+
 const getPrompt = async () => {
   const options = {
     method: 'GET',
@@ -20,9 +34,12 @@ const getPrompt = async () => {
     );
     const data = await response.json();
     // console.log(data);
-    console.log(data[0]);
-    console.log(data[0].character_gender + ' ' + data[0].race_id);
+    // console.log(data);
+    // console.log(data[0].character_gender + ' ' + data[0].race_id);
+    // console.log(data[0].character_gender);
     //console.log(typeof data[0].character_gender); //string
+    // console.log(promptArray);
+    return promptArray.push(data[0].character_gender);
   } catch (error) {
     console.error();
   }
