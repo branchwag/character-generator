@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+a .btn {
+  margin: 20px;
+}
+
 a:visited {
   color: inherit;
 }
