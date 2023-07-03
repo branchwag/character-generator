@@ -17,7 +17,8 @@
 // 	"race_id": 2
 // }
 
-let promptArray = [];
+// let promptArray = [];
+// let thePrompt = '';
 
 const getPrompt = async () => {
   const options = {
@@ -37,19 +38,39 @@ const getPrompt = async () => {
     // console.log(data);
     // console.log(data[0].character_gender + ' ' + data[0].race_id);
     // console.log(data[0].character_gender);
+    let char_gen = data[0].character_gender;
     //console.log(typeof data[0].character_gender); //string
     // console.log(promptArray);
-    return promptArray.push(data[0].character_gender);
+    // promptArray.push(char_gen);
+    // for (let i = 0; i < promptArray.length; i++)
+    // return (promptArray += data[0].character_gender);
+    // data[0].character_gender +
+    // 'from the 1800s without using their name';
+    return (
+      'generate a cool backstory for a ' +
+      char_gen +
+      ' fantasy character without using their name.'
+    );
   } catch (error) {
     console.error();
   }
 };
 
+// getPrompt();
+// console.log(thePrompt);
+(async () => {
+  console.log(await getPrompt());
+})();
+// console.log(promptArray);
+// console.log(promptArray.length);
+
 //So we are getting data from database to make prompt actually. These variables are placeholders for now.
-const backstoryPrompt =
-  'Generate an interesting fantasty character backstory for a female from the 1800s without using her name.';
-const namePrompt =
-  'Generate a cool female fantasy character name from the 1800s';
+// const backstoryPrompt = setTimeout(getPrompt, 1000);
+
+// console.log(backstoryPrompt);
+const namePrompt = 'Generate a cool fantasy character name from the 1800s';
+
+// console.log(backstoryPrompt);
 
 const parentElement = document.querySelector('#backstoryappend');
 const parentElementName = document.querySelector('#charnameappend');
@@ -58,7 +79,7 @@ const getBackstory = async () => {
   const options = {
     method: 'POST',
     body: JSON.stringify({
-      prompt: backstoryPrompt,
+      prompt: await getPrompt(),
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -112,9 +133,13 @@ const getName = async () => {
   }
 };
 
-// getBackstory();
+//getPrompt()
+getBackstory();
 // getName();
-getPrompt();
+// const getBackstory = async () => {
+//   const result = await getPrompt();
+// do something else here after firstFunction completes
+// };
 
 //maybe something here to show while the page is loading?
 
