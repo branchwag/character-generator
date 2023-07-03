@@ -1,14 +1,38 @@
-const charFormHandler = async (event) => {
-  console.log('called charFormHandler');
+const submitButton = document.querySelector('#submitBtn')
+const gender = document.querySelector('#gender')
+const eye = document.querySelector('#eye-color')
+const hair = document.querySelector('#hair-color')
+const race = document.querySelector('#race')
+const charClass = document.querySelector('#class')
 
+
+const collectCharData = async () => {
+  const character_gender = gender.value
+  const eye_color = eye.options[eye.selectedIndex].text
+  const hair_color = hair.options[hair.selectedIndex].text
+  const race_id = race.selectedIndex
+  const class_id = charClass.selectedIndex
+
+  const addChar = await fetch('/api/characters', {
+    method: 'POST',
+    body: JSON.stringify({ character_gender, eye_color, hair_color, race_id, class_id }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  if (addChar.ok) {
+    document.location.replace('/output')
+    console.log("all good")
+  } else {
+    console.log("unsuccessful post request")
+  }
+}
+
+function charFormHandler(event) {
   event.preventDefault();
-  console.log('submit button clicked');
+  console.log('clicked')
+  collectCharData()
+  // loadOutputPage()
+}
 
-  // Collect values from the character form
-  const character_gender = document.querySelector('#gender').value;
-  console.log(character_gender);
-};
+submitButton.addEventListener('click', charFormHandler)
 
-document
-  .querySelector('#submitBtn')
-  .addEventListener('submit', charFormHandler);
+console.log("green eggs and ham")
