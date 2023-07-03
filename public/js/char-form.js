@@ -14,7 +14,15 @@
 //   .addEventListener('submit', charFormHandler);
 
 const submitButton = document.querySelector('#submitBtn')
-const character_gender = document.querySelector('#gender')
+const gender = document.querySelector('#gender')
+const eye = document.querySelector('#eye-color')
+
+
+// const class_id = document.querySelector('#class').value
+// const race_id = document.querySelector('#race').value
+// const eye_color = document.querySelector('#eye-color').value
+// const hair_color = document.querySelector('#hair-color').value
+
 
 
 // function loadOutputPage() { 
@@ -23,8 +31,22 @@ const character_gender = document.querySelector('#gender')
 //   window.location.href = "partials/output"
 // }
 
-function collectCharData() {
-  console.log(character_gender.value)
+const collectCharData = async () => {
+  const character_gender = gender.value
+  // const eye_color = eye.find("option:selected").text()
+  console.log(character_gender)
+  console.log(eye.options[eye.selectedIndex].text)
+  // const addChar = await fetch('/api/characters', {
+  //   method: 'POST',
+  //   body: JSON.stringify({ character_gender }),
+  //   headers: { 'Content-Type': 'application/json' }
+  // });
+  // if (addChar.ok) {
+  //   document.location.replace('/partials/output')
+  //   console.log("all good")
+  // } else {
+  //   console.log("unsuccessful post request")
+  // }
 }
 
 function charFormHandler(event) {
