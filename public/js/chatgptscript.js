@@ -1,6 +1,7 @@
 //need to create string from form inputs to then send to chatgpt. Make that database inputs.
 //front end JS needs to first do a GET request to the backend where a route to query info has been set up to SELECT fields that were input into the form
 //results of GET request get make into queries for backstory and char name
+//making comment to just make sure commit takes
 
 //So we are getting data from database to make prompt actually. These variables are placeholders for now.
 const backstoryPrompt =
