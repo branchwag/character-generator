@@ -104,6 +104,11 @@ nav a:hover {
   margin-top: 14px;
 }
 
+.btn-no-style:hover {
+  color: var(--secondary);
+  background-color: var(--dark);
+}
+
 img {
   max-width: 100%;
   height: auto;
