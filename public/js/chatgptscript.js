@@ -81,8 +81,10 @@ const parentElement = document.querySelector('#backstoryappend');
 const parentElementName = document.querySelector('#charnameappend');
 
 const getBackstory = async () => {
-  // let loader = `<div class="boxLoading"><p>Please wait. Loading...</p></div>`;
-  // parentElement.innerHTML
+  const pElement = document.createElement('p');
+  pElement.id = 'backstoryoutput';
+  pElement.textContent = 'Loading, please wait...';
+  parentElement.append(pElement);
   const options = {
     method: 'POST',
     body: JSON.stringify({
@@ -102,11 +104,10 @@ const getBackstory = async () => {
     // console.log(data);
     console.log(data.choices[0].text);
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
-    const pElement = document.createElement('p');
+    const pElement = document.querySelector('#backstoryoutput');
     pElement.textContent =
       data.choices[0].text +
       '... (Use this as inspiration to flesh out the rest!)';
-    parentElement.append(pElement);
   } catch (error) {
     console.error();
   }
