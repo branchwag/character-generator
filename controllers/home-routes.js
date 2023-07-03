@@ -14,8 +14,8 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('homepage', {
       users,
-      // Pass the logged in flag to the template
-      logged_in: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
+      username: req.session.user,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -23,27 +23,30 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/homepage', (req, res) => {
-  // if (!req.session.loggedIn) {
-  //   res.redirect('/login');
-  //   return;
-  // }
-
-  res.render('homepage', {
-    loggedIn: req.session.loggedIn,
-    username: req.session.user,
-  });
+  if (req.session.loggedIn) {
+    res.render('homepage', {
+      loggedIn: req.session.loggedIn,
+      username: req.session.user,
+    });
+  } else {
+    res.render('homepage', {
+      loggedIn: req.session.loggedIn,
+      username: null,
+    });
+  }
 });
 
 router.get('/profile', (req, res) => {
   res.render('profile', {
     loggedIn: req.session.loggedIn,
+    name: req.session.user,
   });
 });
 
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.loggedIn) {
-    res.redirect('/homepage');
+    res.redirect('/profile');
     return;
   }
 
