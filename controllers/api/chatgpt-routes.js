@@ -42,7 +42,7 @@ router.post('/getbackstory', async (req, res) => {
       model: 'text-davinci-003',
       prompt: req.body.prompt,
       // 'Generate an interesting backstory for a fantasty character from the 1800s.',
-      max_tokens: 100,
+      max_tokens: 300,
     }),
   };
   try {
