@@ -23,4 +23,19 @@ router.get('/', async (req, res) => {
   res.send(characters);
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const charData = await Character.findByPk(req.params.id, {
+      include: [{ model: Class }, { model: Race }]
+    })
+    if (!charData) {
+      res.status(404).json({ message: 'No character found with this id'});
+      return
+    }
+    res.status(200).json(charData)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 module.exports = router;
