@@ -1,14 +1,39 @@
-let reqHash = '';
-
 // remove console logs for url, response, result
+
+// getUserPrompt
+
+const getUserPrompt = async () => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/jsom',
+    },
+  };
+  try {
+    const response = await fetch(
+      'http://localhost:3001/api/characters',
+      options,
+    );
+    const data = await response.json();
+    console.log(data[0]);
+    let charGender = data[0].character_gender;
+    let charHair = data[0].hair_color;
+    let charEyes = data[0].eye_color;
+    return `${charGender} fantasy character with ${charHair} hair and ${charEyes} eyes`;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // /api/images/imagegen
 const imageGen = async () => {
-  const url = 'https://arimagesynthesizer.p.rapidapi.com/generate';
   const options = {
     method: 'POST',
+    body: JSON.stringify({
+      prompt: await getUserPrompt(),
+    }),
     headers: {
-      'Content-Type': 'application/json',
+      'content-type': 'application/x-www-form-urlencoded',
     },
   };
 
@@ -21,9 +46,6 @@ const imageGen = async () => {
     const imgHash = JSON.parse(result);
     console.log(result);
     console.log(imgHash.hash);
-    reqHash = imgHash.hash;
-    console.log(reqHash);
-    console.log(url);
   } catch (error) {
     console.error(error);
   }
@@ -47,11 +69,34 @@ const getImg = async () => {
     );
     const result = await imageGen();
     console.log(response, result);
-    console.log(imageGen);
+    console.log('starting hash processing...');
   } catch (error) {
     console.error(error);
   }
 };
 
+const hashProcessing = async () => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(
+      'http://localhost:3001/api/images/hashes',
+      options,
+    );
+    const result = await response.json();
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getUserPrompt();
 imageGen();
 getImg();
+hashProcessing();
+
+console.log('retrieval script connected...');
