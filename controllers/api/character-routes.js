@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Character } = require('../../models');
+const { Character, Class, Race } = require('../../models');
+
 
 // POST /api/characters
 router.post('/', async (req, res) => {
@@ -12,7 +13,10 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  const charData = await Character.findAll();
+  const charData = await Character.findAll({
+    include: [{ model: Class }, { model: Race }]
+  }
+  );
   const characters = charData.map((Character) =>
     Character.get({ plain: true }),
   );
