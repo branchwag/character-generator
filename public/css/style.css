@@ -93,17 +93,23 @@ nav a:hover {
 }
 
 .btn-no-style {
+  color: var(--light);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
   background: none;
   border: none;
+  font-size: 100%;
+  /* 
+  
   padding: 0px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 100%;
+  
   transition: color 0.1s;
   margin-left: 16px;
-  margin-top: 14px;
+  margin-top: 14px; */
 }
-
 .btn-no-style:hover {
   color: var(--secondary);
   background-color: var(--dark);
