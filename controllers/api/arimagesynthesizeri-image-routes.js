@@ -53,7 +53,7 @@ router.get('/genimg', async (req, res) => {
     const response = await fetch(url, options);
     const result = await response;
     const encodeUrl = btoa(url);
-    res.send(result);
+    res.send(encodeUrl);
     console.log(result);
     console.log(encodeUrl);
   } catch (error) {
