@@ -81,6 +81,8 @@ const parentElement = document.querySelector('#backstoryappend');
 const parentElementName = document.querySelector('#charnameappend');
 
 const getBackstory = async () => {
+  // let loader = `<div class="boxLoading"><p>Please wait. Loading...</p></div>`;
+  // parentElement.innerHTML
   const options = {
     method: 'POST',
     body: JSON.stringify({
@@ -138,7 +140,7 @@ const getName = async () => {
   }
 };
 
-//getPrompt()
+//these functions will run on an event listener? when a button is clicked, go and generate? or just this way on page load?
 getBackstory();
 getName();
 // const getBackstory = async () => {
