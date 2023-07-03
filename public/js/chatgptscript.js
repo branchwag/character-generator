@@ -1,7 +1,32 @@
 //need to create string from form inputs to then send to chatgpt. Make that database inputs.
 //front end JS needs to first do a GET request to the backend where a route to query info has been set up to SELECT fields that were input into the form
 //results of GET request get make into queries for backstory and char name
-//making comment to just make sure commit takes
+//using the below endpoint to test for now
+
+//http://localhost:3001/api/characters
+
+const getPrompt = async () => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const response = await fetch(
+      'http://localhost:3001/api/characters',
+      options,
+    );
+    const data = await response.json();
+    // console.log(data);
+    console.log(data[0]);
+    console.log(data[0].character_gender + ' ' + data[0].race_id);
+    //console.log(typeof data[0].character_gender); //string
+  } catch (error) {
+    console.error();
+  }
+};
 
 //So we are getting data from database to make prompt actually. These variables are placeholders for now.
 const backstoryPrompt =
@@ -70,8 +95,9 @@ const getName = async () => {
   }
 };
 
-getBackstory();
-getName();
+// getBackstory();
+// getName();
+getPrompt();
 
 //maybe something here to show while the page is loading?
 
