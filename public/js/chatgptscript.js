@@ -1,10 +1,13 @@
 //need to create string from form inputs to then send to chatgpt. Make that database inputs.
 //front end JS needs to first do a GET request to the backend where a route to query info has been set up to SELECT fields that were input into the form
 //results of GET request get make into queries for backstory and char name
+//making comment to just make sure commit takes
 
 //So we are getting data from database to make prompt actually. These variables are placeholders for now.
-const backstoryPrompt = 'Generate a cool fantasty character backstory';
-const namePrompt = 'Generate a cool fantasy character name from the 1800s';
+const backstoryPrompt =
+  'Generate an interesting fantasty character backstory for a female from the 1800s without using her name.';
+const namePrompt =
+  'Generate a cool female fantasy character name from the 1800s';
 
 const parentElement = document.querySelector('#backstoryappend');
 const parentElementName = document.querySelector('#charnameappend');
@@ -13,8 +16,7 @@ const getBackstory = async () => {
   const options = {
     method: 'POST',
     body: JSON.stringify({
-      prompt: backstoryPrompt, //'Please describe a sunny day.', //get output from saveformdata file
-      // 'Generate an interesting backstory for a fantasty character from the 1800s.',
+      prompt: backstoryPrompt,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -27,12 +29,13 @@ const getBackstory = async () => {
       options,
     );
     const data = await response.json();
-    // console.log('test log in the try part');
     // console.log(data);
     console.log(data.choices[0].text);
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
     const pElement = document.createElement('p');
-    pElement.textContent = data.choices[0].text;
+    pElement.textContent =
+      data.choices[0].text +
+      '... (Use this as inspiration to flesh out the rest!)';
     parentElement.append(pElement);
   } catch (error) {
     console.error();
@@ -56,7 +59,6 @@ const getName = async () => {
       options,
     );
     const data = await response.json();
-    // console.log('test log in the try part');
     // console.log(data);
     console.log(data.choices[0].text);
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
@@ -73,4 +75,4 @@ getName();
 
 //maybe something here to show while the page is loading?
 
-console.log('the chatgpt backstory script is connected');
+// console.log('the chatgpt backstory script is connected');
