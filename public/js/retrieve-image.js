@@ -1,35 +1,37 @@
-const userPrompt = 'fantasy high elf sorcerer';
-// const exElement = document.querySelector('#pagetitle');
-let grabbedHash;
+let reqHash = '';
 
-// POST : grab from localhost route and get hash
+// remove console logs for url, response, result
 
-const retrieveImage = async () => {
+// /api/images/imagegen
+const imageGen = async () => {
+  const url = 'https://arimagesynthesizer.p.rapidapi.com/generate';
   const options = {
     method: 'POST',
-    body: userPrompt,
     headers: {
-      'X-RapidAPI-Key': 'ea7d8918bcmsh2f4999342dafc11p1b9681jsn5835d1387bcd',
-      'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
+      'Content-Type': 'application/json',
     },
   };
+
   try {
     const response = await fetch(
       'http://localhost:3001/api/images/imagegen',
       options,
     );
-    const imgData = await response.json();
-    console.log(imgData);
-    grabbedHash = imgData.hash;
-    console.log(grabbedHash);
+    const result = await response.text();
+    const imgHash = JSON.parse(result);
+    console.log(result);
+    console.log(imgHash.hash);
+    reqHash = imgHash.hash;
+    console.log(reqHash);
+    console.log(url);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
-// GET: grab encoded url
+// /api/images/genimg
 
-const hashToEncodedURL = async () => {
+const getImg = async () => {
   const options = {
     method: 'GET',
     headers: {
@@ -37,19 +39,19 @@ const hashToEncodedURL = async () => {
       'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
     },
   };
+
   try {
     const response = await fetch(
       'http://localhost:3001/api/images/genimg',
       options,
     );
-    const imgData = await response.text();
-    console.log(JSON.stringify(imgData));
+    const result = await imageGen();
+    console.log(response, result);
+    console.log(imageGen);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
-retrieveImage();
-hashToEncodedURL();
-
-console.log('retrieval script connected...');
+imageGen();
+getImg();
