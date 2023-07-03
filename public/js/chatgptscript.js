@@ -38,9 +38,9 @@ const getBackstoryPrompt = async () => {
     let char_gen = data[0].character_gender;
     //console.log(typeof data[0].character_gender); //string
     return (
-      'generate a cool backstory for a ' +
+      'Without using the character name, generate a cool backstory for a ' +
       char_gen +
-      ' fantasy character without using their name.'
+      ' fantasy character. Do not use the character name.'
     );
   } catch (error) {
     console.error();
@@ -134,6 +134,7 @@ const getName = async () => {
     console.log(data.choices[0].text);
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
     const pElement = document.createElement('p');
+    pElement.id = 'genname';
     pElement.textContent = data.choices[0].text;
     parentElementName.append(pElement);
   } catch (error) {
@@ -149,6 +150,18 @@ getName();
 // do something else here after firstFunction completes
 // };
 
+function reGen() {
+  //wipe the current boxes
+  document.querySelector('#genname').remove();
+  document.querySelector('#backstoryoutput').remove();
+  getBackstory();
+  getName();
+}
+
 //maybe something here to show while the page is loading?
 
 // console.log('the chatgpt backstory script is connected');
+
+const reGenButton = document.querySelector('#regen');
+
+reGenButton.addEventListener('click', reGen);
