@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const imagapiKey = process.env.IMAGE_API_KEY;
 let reqHash = '';
-let encodeUrl;
 
 // /api/images/imagegen
 router.post('/imagegen', async (req, res) => {
@@ -53,8 +52,8 @@ router.get('/genimg', async (req, res) => {
   try {
     const response = await fetch(url, options);
     const result = await response;
-    encodeUrl = btoa(url);
-    res.send(result);
+    const encodeUrl = btoa(url);
+    res.send(encodeUrl);
     console.log(result);
     console.log(encodeUrl);
   } catch (error) {
@@ -62,4 +61,4 @@ router.get('/genimg', async (req, res) => {
   }
 });
 
-module.exports = { router, encodeUrl };
+module.exports = router;
