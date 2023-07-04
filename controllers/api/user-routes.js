@@ -29,6 +29,27 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/', async (req, res) => {
+  const userData = await User.findAll();
+  const users = userData.map((User) =>
+    User.get({ plain: true }),
+  );
+  res.send(users);
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id);
+    if (!userData) {
+      res.status(404).json({ message: 'No user found with this id'});
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Login
 // POST /api/users/login
 router.post('/login', async (req, res) => {
