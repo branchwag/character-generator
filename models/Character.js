@@ -39,6 +39,18 @@ Character.init(
         key: 'id',
       },
     },
+    name:{
+      type:DataTypes.STRING,
+      allowNull:true,
+    },
+    backstory:{
+      type:DataTypes.STRING,
+      allowNull:true,
+    },
+    image_link:{
+      type:DataTypes.STRING,
+      allowNull:true,
+    },
   },
   {
     sequelize,
