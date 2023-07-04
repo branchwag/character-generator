@@ -14,17 +14,17 @@ Character.init(
     character_gender:{
       type:DataTypes.STRING,
       allowNull:true,
-      primaryKey:true,
+      
     },
     eye_color:{
       type:DataTypes.STRING,
       allowNull:false,
-      primaryKey:true,
+      
     },
     hair_color:{
       type:DataTypes.STRING,
       allowNull:false,
-      primaryKey:true,
+      
     },
     class_id: {
       type: DataTypes.INTEGER,
