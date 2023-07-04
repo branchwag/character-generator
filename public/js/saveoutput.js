@@ -11,13 +11,14 @@ const collectCharData = async () => {
   //   console.log(charName);
   //   console.log(charBackstory);
   //   console.log(charNameEl);
+  console.log(charBackstory.trim().slice(0, 100));
   //const charImg = get the source here;
 
   const options = {
     method: 'PUT',
     body: JSON.stringify({
       name: charName.trim(),
-      //   backstory: charBackstory.trim(),
+      backstory: charBackstory.trim().slice(0, 200),
       // image_link: charImg will go here,
     }),
     headers: {
