@@ -4,12 +4,12 @@ const charBackstoryEl = document.querySelector('#backstoryoutput');
 // const charImageEl = document.querySelector('#genimage'); Need to get image generated on page
 
 const collectCharData = async () => {
-  const charName = charNameEl.value;
-  const charBackstory = charBackstoryEl.value;
+  const charName = charNameEl.textContent;
+  const charBackstory = charBackstoryEl.textContent;
   //const charImg = get the source here;
 
   if (charName && charBackstory) {
-    const addCharGen = await fetch('/api/characters', {
+    const addCharGen = await fetch('/api/characters/1', {
       method: 'POST',
       body: JSON.stringify({
         charName,
