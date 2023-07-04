@@ -88,7 +88,7 @@ const hashProcessing = async () => {
       options,
     );
     const result = await response.json();
-    console.log(result);
+    console.log(result[0]);
   } catch (err) {
     console.log(err);
   }
