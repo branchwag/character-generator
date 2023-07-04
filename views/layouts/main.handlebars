@@ -13,13 +13,19 @@
     <link rel='stylesheet' type='text/css' href='../../css/style.css' />
   </head>
   <body>
-    <header>
-      <h1 id='pagetitle'>Welcome to LegendSmith!</h1>
-    </header>
-    <nav class="navbar navbar-expand-lg d-flex">
+    {{#if loggedIn}}
+      <header>
+        <h1 id='pagetitle'>Welcome back, {{username}}!</h1>
+      </header>
+    {{else}}
+      <header>
+        <h1 id='pagetitle'>Welcome to LegendSmith!</h1>
+      </header>
+    {{/if}}
+    <nav class='navbar navbar-expand-lg d-flex'>
       <a href='#' onclick='goToHomepage()'>Home</a>
       {{#if loggedIn}}
-        <form class="m-0" id='logout-form' action='/logout' method='GET'>
+        <form class='m-0' id='logout-form' action='/logout' method='GET'>
           <button type='submit' id='logout' class='btn-no-style'>Logout</button>
         </form>
       {{else}}
