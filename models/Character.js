@@ -11,17 +11,17 @@ Character.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    character_gender:{
-      type:DataTypes.STRING,
-      allowNull:true,
+    character_gender: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
-    eye_color:{
-      type:DataTypes.STRING,
-      allowNull:true,
+    eye_color: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
-    hair_color:{
-      type:DataTypes.STRING,
-      allowNull:true,
+    hair_color: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     class_id: {
       type: DataTypes.INTEGER,
@@ -39,17 +39,17 @@ Character.init(
         key: 'id',
       },
     },
-    name:{
-      type:DataTypes.STRING,
-      allowNull:true,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
-    backstory:{
-      type:DataTypes.STRING,
-      allowNull:true,
+    backstory: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
-    image_link:{
-      type:DataTypes.STRING,
-      allowNull:true,
+    image_link: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
