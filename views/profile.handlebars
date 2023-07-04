@@ -70,7 +70,7 @@
     console.log(data);
     console.log(data[0]);
     let cardTitle1 = document.querySelector('#card-1');
-    cardTitle1.innertext = data[0];
+    cardTitle1.innerHTML = data[0].character_gender;
   } catch (error) {
     console.error();
   }
