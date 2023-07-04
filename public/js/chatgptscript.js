@@ -149,7 +149,7 @@ const getBackstory = async () => {
     const pElement = document.querySelector('#backstoryoutput');
     pElement.textContent =
       data.choices[0].text +
-      '... (Use this as inspiration to flesh out the rest!)';
+      '...Use this as inspiration to flesh out the rest!';
   } catch (error) {
     console.error();
   }
