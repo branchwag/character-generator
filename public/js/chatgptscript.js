@@ -33,13 +33,38 @@ const getBackstoryPrompt = async () => {
     const data = await response.json();
     // console.log(data);
     // console.log(data);
+    // console.log(data.length);
+    const arrayLength = data.length;
+    const lastCharacter = data[arrayLength - 1];
+    // character_gender
+    // class
+    // race
+    const characterGender = lastCharacter.character_gender;
+    // console.log(characterGender);
+    const characterClass = lastCharacter.class.class_name;
+    // console.log(characterClass);
+    const characterRace = lastCharacter.race.race_name;
+    // console.log(characterRace);
     // console.log(data[0].character_gender + ' ' + data[0].race_id);
     // console.log(data[0].character_gender);
-    let char_gen = data[0].character_gender;
+    // let char_gen = data[0].character_gender;
     //console.log(typeof data[0].character_gender); //string
+    // console.log(
+    //   'Without using the character name, generate a cool backstory for a ' +
+    //     characterGender +
+    //     ' ' +
+    //     characterClass +
+    //     ' ' +
+    //     characterRace +
+    //     ' fantasy character. Do not use the character name.',
+    // );
     return (
       'Without using the character name, generate a cool backstory for a ' +
-      char_gen +
+      characterGender +
+      ' ' +
+      characterClass +
+      ' ' +
+      characterRace +
       ' fantasy character. Do not use the character name.'
     );
   } catch (error) {
@@ -62,14 +87,31 @@ const getNamePrompt = async () => {
     );
     const data = await response.json();
     // console.log(data);
+    // console.log(data.length);
+    const arrayLength = data.length;
+    const lastCharacter = data[arrayLength - 1];
+    // character_gender
+    // class
+    // race
+    const characterGender = lastCharacter.character_gender;
+    // console.log(characterGender);
+    const characterClass = lastCharacter.class.class_name;
+    // console.log(characterClass);
+    const characterRace = lastCharacter.race.race_name;
+    // console.log(characterRace);
+    // console.log(data);
     // console.log(data);
     // console.log(data[0].character_gender + ' ' + data[0].race_id);
     // console.log(data[0].character_gender);
-    let char_gen = data[0].character_gender;
+    // let char_gen = data[0].character_gender;
     //console.log(typeof data[0].character_gender); //string
     return (
       'generate a cool name for a ' +
-      char_gen +
+      characterGender +
+      ' ' +
+      characterClass +
+      ' ' +
+      characterRace +
       ' fantasy character from the 1800s.'
     );
   } catch (error) {
@@ -102,12 +144,12 @@ const getBackstory = async () => {
     );
     const data = await response.json();
     // console.log(data);
-    console.log(data.choices[0].text);
+    // console.log(data.choices[0].text);
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
     const pElement = document.querySelector('#backstoryoutput');
     pElement.textContent =
       data.choices[0].text +
-      '... (Use this as inspiration to flesh out the rest!)';
+      '...Use this as inspiration to flesh out the rest!';
   } catch (error) {
     console.error();
   }
@@ -131,7 +173,7 @@ const getName = async () => {
     );
     const data = await response.json();
     // console.log(data);
-    console.log(data.choices[0].text);
+    // console.log(data.choices[0].text);
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
     const pElement = document.createElement('p');
     pElement.id = 'genname';
@@ -165,3 +207,5 @@ function reGen() {
 const reGenButton = document.querySelector('#regen');
 
 reGenButton.addEventListener('click', reGen);
+
+// console.log('bananas');

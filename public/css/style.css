@@ -196,3 +196,9 @@ img {
   margin: 1rem;
   margin-bottom: 50px;
 }
+
+/* some CSS for output page  */
+#savetext {
+  color: red;
+  margin-top: 10px;
+}

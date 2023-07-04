@@ -36,4 +36,22 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+//PUT to update character by ID with AI output
+router.put('/:id', async (req, res) => {
+  try {
+    const charData = await Character.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!charData) {
+      res.status(404).json({ message: 'No character found with this id' });
+      return;
+    }
+    res.status(200).json(charData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

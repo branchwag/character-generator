@@ -75,5 +75,4 @@ router.get('/output', (req, res) => {
     loggedIn: req.session.loggedIn,
   });
 });
-
 module.exports = router;
