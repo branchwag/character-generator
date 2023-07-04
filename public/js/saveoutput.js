@@ -43,6 +43,15 @@ const collectCharData = async () => {
 function SaveHandler(event) {
   event.preventDefault();
   console.log('clicked');
+  //remove the submit button and replace with text that the character has been saved
+  submitButton.remove();
+  const regenEl = document.querySelector('#regen');
+  regenEl.remove();
+  const backstoryEl = document.querySelector('#backstoryoutput');
+  const newElement = document.createElement('p');
+  newElement.id = 'savetext';
+  newElement.textContent = 'Legend Saved!';
+  backstoryEl.append(newElement);
   collectCharData();
 }
 
