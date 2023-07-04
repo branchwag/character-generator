@@ -1,45 +1,38 @@
 const submitButton = document.querySelector('#save');
-const charName = document.querySelector('#genname');
-const charBackstory = document.querySelector('#eye-color');
-const charImage = document.querySelector('#hair-color');
+const charNameEl = document.querySelector('#genname');
+const charBackstoryEl = document.querySelector('#backstoryoutput');
+// const charImageEl = document.querySelector('#genimage'); Need to get image generated on page
 
 const collectCharData = async () => {
-  const character_gender = gender.value;
-  const eye_color = eye.options[eye.selectedIndex].text;
-  const hair_color = hair.options[hair.selectedIndex].text;
-  const race_id = race.selectedIndex;
-  const class_id = charClass.selectedIndex;
+  const charName = charNameEl.value;
+  const charBackstory = charBackstoryEl.value;
+  //const charImg = get the source here;
 
-  if (character_gender && class_id && race_id) {
-    const addChar = await fetch('/api/characters', {
+  if (charName && charBackstory) {
+    const addCharGen = await fetch('/api/characters', {
       method: 'POST',
       body: JSON.stringify({
-        character_gender,
-        eye_color,
-        hair_color,
-        race_id,
-        class_id,
+        charName,
+        charBackstory,
+        // charImg,
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    if (addChar.ok) {
-      document.location.replace('/output');
-      console.log('all good');
+    if (addCharGen.ok) {
+      //   document.location.replace('/output');
+      console.log('character saved');
     } else {
       console.log('unsuccessful post request');
     }
-  } else {
-    alert('Gender, race, and class are required fields');
   }
 };
 
-function charFormHandler(event) {
+function SaveHandler(event) {
   event.preventDefault();
   console.log('clicked');
   collectCharData();
-  // loadOutputPage()
 }
 
-submitButton.addEventListener('click', charFormHandler);
+submitButton.addEventListener('click', SaveHandler);
 
-console.log('green eggs and ham');
+console.log('script connected');
