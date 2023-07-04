@@ -18,7 +18,7 @@ const collectCharData = async () => {
     method: 'PUT',
     body: JSON.stringify({
       name: charName.trim(),
-      backstory: charBackstory.trim(), //.slice(0, 200),
+      backstory: charBackstory.trim().slice(0, 255),
       // image_link: charImg will go here,
     }),
     headers: {
