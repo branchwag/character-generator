@@ -200,4 +200,5 @@ img {
 /* some CSS for output page  */
 #savetext {
   color: red;
+  margin-top: 10px;
 }
