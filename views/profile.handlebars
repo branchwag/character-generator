@@ -19,8 +19,20 @@
     <div class="card h-100">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{name}}'s Characters</h5>
-        <a href="/output" class="btn btn-primary" role="button">Click Here!</a>
+        <h5 class="card-title" id="card-1"></h5>
+        <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" id="card-2">{{name}}'s Characters</h5>
+        <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
       </div>
       <div class="card-footer">
         <small class="text-body-secondary">Last updated 3 mins ago</small>
@@ -32,19 +44,7 @@
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{name}}'s Characters</h5>
-        <a href="/output" class="btn btn-primary" role="button">Click Here!</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}'s Characters</h5>
-        <a href="/output" class="btn btn-primary" role="button">Click Here!</a>
+        <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
       </div>
       <div class="card-footer">
         <small class="text-body-secondary">Last updated 3 mins ago</small>
@@ -54,7 +54,29 @@
 </div>
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
+      <script>const getCharByID = async () => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch(
+      'http://localhost:3001/api/characters/',
+      options,
+    );
+    const data = await response.json();
+    console.log(data);
+    console.log(data[0]);
+    let cardTitle1 = document.querySelector('#card-1');
+    cardTitle1.innertext = data[0];
+  } catch (error) {
+    console.error();
+  }
+};
+getCharByID();</script>
     {{/if}}
 </body>
-{{!-- <script src="./js/profile.js"></script> --}}
+
 
