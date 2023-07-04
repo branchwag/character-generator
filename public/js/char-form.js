@@ -31,9 +31,8 @@ const collectCharData = async () => {
       console.log('unsuccessful post request');
     }
   } else {
-    alert('Gender, race, and class are required fields')
+    alert('Gender, race, and class are required fields');
   }
-
 };
 
 function charFormHandler(event) {

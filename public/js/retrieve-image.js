@@ -1,4 +1,5 @@
 // remove console logs for url, response, result
+let imgUrl;
 
 // getUserPrompt
 
@@ -19,7 +20,14 @@ const getUserPrompt = async () => {
     let charGender = data[0].character_gender;
     let charHair = data[0].hair_color;
     let charEyes = data[0].eye_color;
-    return `${charGender} fantasy character with ${charHair} hair and ${charEyes} eyes`;
+    return (
+      charGender +
+      ' fantasy character with ' +
+      charHair +
+      ' hair and ' +
+      charEyes +
+      ' eyes'
+    );
   } catch (error) {
     console.log(error);
   }
@@ -29,7 +37,7 @@ const getUserPrompt = async () => {
 const imageGen = async () => {
   const options = {
     method: 'POST',
-    body: JSON.stringify({
+    body: new URLSearchParams({
       prompt: await getUserPrompt(),
     }),
     headers: {
@@ -38,6 +46,7 @@ const imageGen = async () => {
   };
 
   try {
+    console.log(options.body);
     const response = await fetch(
       'http://localhost:3001/api/images/imagegen',
       options,
@@ -89,14 +98,18 @@ const hashProcessing = async () => {
     );
     const result = await response.json();
     console.log(result);
+    grabbedHash = result.image[0].hash;
+    imgUrl = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${grabbedHash}&returnType=image`;
+    console.log(imgUrl);
   } catch (err) {
     console.log(err);
   }
 };
 
-getUserPrompt();
+// getUserPrompt();
 imageGen();
 getImg();
 hashProcessing();
 
 console.log('retrieval script connected...');
+// console.log(getUserPrompt());

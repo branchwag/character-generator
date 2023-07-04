@@ -25,6 +25,8 @@ router.post('/imagegen', async (req, res) => {
   };
 
   try {
+    console.log(req);
+    console.log(req.body.prompt);
     const response = await fetch(url, options);
     const result = await response.text();
     const imgHash = JSON.parse(result);
