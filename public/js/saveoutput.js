@@ -8,16 +8,17 @@ const collectCharData = async () => {
   const charBackstoryEl = document.querySelector('#backstoryoutput');
   const charName = charNameEl.textContent;
   const charBackstory = charBackstoryEl.textContent;
-  console.log(charName);
+  //   console.log(charName);
+  //   console.log(charBackstory);
   //   console.log(charNameEl);
   //const charImg = get the source here;
 
   const options = {
     method: 'PUT',
     body: JSON.stringify({
-      name: charName,
-      //   backstory: charBackstory,
-      // charImg,
+      name: charName.trim(),
+      //   backstory: charBackstory.trim(),
+      // image_link: charImg will go here,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -37,26 +38,6 @@ const collectCharData = async () => {
     console.error();
   }
 };
-
-//   if (charName && charBackstory) {
-//     const addCharGen = await fetch('/api/characters/1', {
-//       //id needs to be dynamically generated
-//       method: 'PUT',
-//       body: JSON.stringify({
-//         name: charName,
-//         backstory: charBackstory,
-//         // charImg,
-//       }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-//     if (addCharGen.ok) {
-//       //   document.location.replace('/output');
-//       console.log('character saved');
-//     } else {
-//       console.log('unsuccessful post request');
-//     }
-//   }
-// };
 
 function SaveHandler(event) {
   event.preventDefault();
