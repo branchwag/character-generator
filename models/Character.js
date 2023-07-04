@@ -14,21 +14,18 @@ Character.init(
     character_gender:{
       type:DataTypes.STRING,
       allowNull:true,
-      primaryKey:true,
     },
     eye_color:{
       type:DataTypes.STRING,
-      allowNull:false,
-      primaryKey:true,
+      allowNull:true,
     },
     hair_color:{
       type:DataTypes.STRING,
-      allowNull:false,
-      primaryKey:true,
+      allowNull:true,
     },
     class_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'class',
         key: 'id',
@@ -36,11 +33,23 @@ Character.init(
     },
     race_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'race',
         key: 'id',
       },
+    },
+    name:{
+      type:DataTypes.STRING,
+      allowNull:true,
+    },
+    backstory:{
+      type:DataTypes.STRING,
+      allowNull:true,
+    },
+    image_link:{
+      type:DataTypes.STRING,
+      allowNull:true,
     },
   },
   {
