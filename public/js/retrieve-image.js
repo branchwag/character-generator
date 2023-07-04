@@ -1,4 +1,5 @@
 // remove console logs for url, response, result
+let imgUrl;
 
 // getUserPrompt
 
@@ -68,7 +69,7 @@ const getImg = async () => {
       options,
     );
     const result = await imageGen();
-    console.log(response, result);
+    // console.log(response, result);
     console.log('starting hash processing...');
   } catch (error) {
     console.error(error);
@@ -88,7 +89,10 @@ const hashProcessing = async () => {
       options,
     );
     const result = await response.json();
-    console.log(result[0]);
+    console.log(result.image[0].hash);
+    grabbedHash = result.image[0].hash;
+    imgUrl = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${grabbedHash}&returnType=image`;
+    console.log(imgUrl);
   } catch (err) {
     console.log(err);
   }

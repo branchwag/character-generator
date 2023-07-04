@@ -13,15 +13,17 @@ router.post('/imagegen', async (req, res) => {
       'X-RapidAPI-Key': `${imagapiKey}`,
       'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
     },
-    body: new URLSearchParams({
-      prompt: req.body.prompt,
-      id: '12345',
-      width: '768',
-      height: '768',
-      inferenceSteps: '50',
-      guidanceScale: '7.5',
-      img2img_strength: '0.75',
-    }),
+    body: JSON.stringify(
+      new URLSearchParams({
+        prompt: req.body.prompt,
+        id: '12345',
+        width: '768',
+        height: '768',
+        inferenceSteps: '50',
+        guidanceScale: '7.5',
+        img2img_strength: '0.75',
+      }),
+    ),
   };
 
   try {
