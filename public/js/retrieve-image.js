@@ -8,7 +8,7 @@ const getUserPrompt = async () => {
   const options = {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/jsom',
+      'Content-Type': 'application/json',
     },
   };
   try {
@@ -16,7 +16,7 @@ const getUserPrompt = async () => {
     const data = await response.json();
     const arrayLength = data.length;
     const lastCharacter = data[arrayLength - 1];
-    console.log(data[0]);
+    // console.log(data[0]);
     let charGender = lastCharacter.character_gender;
     let charHair = lastCharacter.hair_color;
     let charEyes = lastCharacter.eye_color;
@@ -112,6 +112,12 @@ const getImg = async () => {
           const base64data = reader.result;
           console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
 
+          //remove old image
+          if (document.getElementById('genimg')) {
+            const oldImg = document.getElementById('genimg');
+            oldImg.remove();
+          }
+
           //img element creation
           const parentElement = document.getElementById('testtext');
           const imgElement = document.createElement('img');
@@ -125,7 +131,7 @@ const getImg = async () => {
   }
 };
 
-// console.log(getUserPrompt());
+console.log(getUserPrompt());
 imageGen();
 getImg(); //GET IMG should be last function to run
 // hashProcessing();
