@@ -20,12 +20,14 @@ const getCharByID = async () => {
         let cardbox = document.querySelector('#cardbox');
         //make a div
         let newCard = document.createElement('div');
+        newCard.id = `'card-${i + 1}'`;
+        console.log(newCard.id);
         newCard.innerHTML = `
         <div class="col">
             <div class="card h-100">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title" id="card-1"></h5>
+                <h5 class="card-title" id=${newCard.id}></h5>
                 <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
             </div>
             <div class="card-footer">
@@ -38,7 +40,7 @@ const getCharByID = async () => {
         //populate the card with data
 
         //console.log(data[i].eye_color);
-        let cardTitle1 = document.querySelector('#card-1');
+        let cardTitle1 = document.querySelector(`#${newCard.id}`);
         cardTitle1.innerHTML = data[i].name;
       }
     }
