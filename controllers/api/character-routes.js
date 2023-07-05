@@ -7,6 +7,7 @@ router.post('/', async (req, res) => {
     const charData = await Character.create(req.body);
     res.status(200).json(charData);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
