@@ -13,16 +13,16 @@
     <link rel='stylesheet' type='text/css' href='../../css/style.css' />
   </head>
   <body>
-    {{#if loggedIn}}
+    {{!-- {{#if loggedIn}} --}}
       <header>
         <h1 id='pagetitle'>LegendSmith</h1>
         <h2>your next adventure begins here</h2>
       </header>
-    {{else}}
+    {{!-- {{else}}
       <header>
         <h1 id='pagetitle'>Welcome to LegendSmith!</h1>
       </header>
-    {{/if}}
+    {{/if}} --}}
     <nav class='navbar navbar-expand-lg d-flex'>
       <a href='#' onclick='goToHomepage()'>Home</a>
       {{#if loggedIn}}
