@@ -27,10 +27,7 @@ const collectCharData = async () => {
   };
 
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/characters/1',
-      options,
-    );
+    const response = await fetch('/api/characters/1', options);
     const data = await response.json();
     console.log(data);
     // console.log(data.choices[0].text);

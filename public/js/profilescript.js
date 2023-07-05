@@ -6,10 +6,7 @@ const getCharByID = async () => {
     },
   };
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/characters/',
-      options,
-    );
+    const response = await fetch('/api/characters/', options);
     const data = await response.json();
     console.log(data);
     // console.log(data[0]);
