@@ -1,4 +1,6 @@
 {{#if loggedIn}}
+<div class="container" id="char-form-container">
+
 <div>
   <h2 class="text-center">Character Generator</h2>
   <p>Who would you like your character to be?</p>
@@ -103,9 +105,10 @@
         <option value="10">Bald</option>
       </select>
     </div>
-    <input type="submit" class="btn btn-danger" id="submitBtn" value="Discover your character"> 
+    <input type="submit" class="btn btn-primary" id="submitBtn" value="Discover your character"> 
     </form>
 
     
   {{/if}}
 <script src='/js/char-form.js'></script>
+</div>
