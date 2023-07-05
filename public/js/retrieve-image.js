@@ -134,9 +134,9 @@ const getImg = async () => {
   }
 };
 
-getUserPrompt();
-// imageGen();
-// getImg(); GET IMG should be last function to run
+// console.log(getUserPrompt());
+imageGen();
+getImg(); //GET IMG should be last function to run
 // hashProcessing();
 
 console.log('retrieval script connected...');
