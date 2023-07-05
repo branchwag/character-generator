@@ -39,6 +39,14 @@ Character.init(
         key: 'id',
       },
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,
