@@ -15,6 +15,28 @@ const getCharByID = async () => {
     // console.log(data[0]);
     for (let i = 0; i < data.length; i++) {
       if (data[i].name.length > 1) {
+        //if the item has been saved, it has a name so we will make a card for it
+        //create a card
+        let cardbox = document.querySelector('#cardbox');
+        //make a div
+        let newCard = document.createElement('div');
+        newCard.innerHTML = `
+        <div class="col">
+            <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="card-1"></h5>
+                <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </div>
+            </div>
+        </div>`;
+        cardbox.append(newCard);
+
+        //populate the card with data
+
         //console.log(data[i].eye_color);
         let cardTitle1 = document.querySelector('#card-1');
         cardTitle1.innerHTML = data[i].name;

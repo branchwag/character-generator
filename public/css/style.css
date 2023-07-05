@@ -20,6 +20,7 @@
   font-family: 'Homemade Apple', cursive;
   font-weight: 800;
   font-size: 350%;
+  /* color: #fff; */
 }
 
 header h2 {
@@ -28,6 +29,7 @@ header h2 {
   margin-left: 110px;
   margin-top: -20px;
   font-style: italic;
+  /* color: #fff; */
 }
 
 body {
