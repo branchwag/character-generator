@@ -13,22 +13,26 @@ const collectCharData = async () => {
   const class_id = charClass.selectedIndex;
 
   if (character_gender && class_id && race_id) {
-    const addChar = await fetch('/api/characters', {
-      method: 'POST',
-      body: JSON.stringify({
-        character_gender,
-        eye_color,
-        hair_color,
-        race_id,
-        class_id,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (addChar.ok) {
-      document.location.replace('/output');
-      console.log('all good');
-    } else {
-      console.log('unsuccessful post request');
+    try {
+      const addChar = await fetch('/api/characters', {
+        method: 'POST',
+        body: JSON.stringify({
+          character_gender,
+          eye_color,
+          hair_color,
+          race_id,
+          class_id,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (addChar.ok) {
+        document.location.replace('/output');
+        console.log('all good');
+      } else {
+        console.log('unsuccessful post request');
+      }
+    } catch (error) {
+      console.error(error);
     }
   } else {
     alert('Gender, race, and class are required fields');
