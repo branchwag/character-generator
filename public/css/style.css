@@ -18,6 +18,16 @@
 
 #pagetitle {
   font-family: 'Homemade Apple', cursive;
+  font-weight: 800;
+  font-size: 350%;
+}
+
+header h2 {
+  /* font-family: 'Homemade Apple', cursive; */
+  font-size: 150%;
+  margin-left: 110px;
+  margin-top: -20px;
+  font-style: italic;
 }
 
 body {
@@ -189,6 +199,10 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+#user-greeting {
+  align-content: center;
 }
 
 .greeting {
