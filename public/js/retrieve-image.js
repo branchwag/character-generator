@@ -1,5 +1,6 @@
 // remove console logs for url, response, result
 let imgUrl;
+let genhash;
 
 // getUserPrompt
 
@@ -55,30 +56,8 @@ const imageGen = async () => {
     const imgHash = JSON.parse(result);
     console.log(result);
     console.log(imgHash.hash);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-// /api/images/genimg
-
-const getImg = async () => {
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'ea7d8918bcmsh2f4999342dafc11p1b9681jsn5835d1387bcd',
-      'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
-    },
-  };
-
-  try {
-    const response = await fetch(
-      'http://localhost:3001/api/images/genimg',
-      options,
-    );
-    const result = await imageGen();
-    console.log(response, result);
-    console.log('starting hash processing...');
+    // return (genhash = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${(genhash =
+    //   imgHash.hash)}&returnType=image`);
   } catch (error) {
     console.error(error);
   }
@@ -98,18 +77,64 @@ const hashProcessing = async () => {
     );
     const result = await response.json();
     console.log(result);
-    grabbedHash = result.image[0].hash;
+    const lineForHash = result.image;
+    console.log(typeof lineForHash);
+    console.log(lineForHash.length);
+    grabbedHash = result.image[lineForHash.length - 1].hash;
+    console.log(grabbedHash);
     imgUrl = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${grabbedHash}&returnType=image`;
     console.log(imgUrl);
+    return imgUrl;
   } catch (err) {
     console.log(err);
   }
 };
 
+// /api/images/genimg
+
+const getImg = async () => {
+  const url = await hashProcessing();
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'f0f29904e6mshef2e6c564d6894dp1e667djsnc65327931468',
+      'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
+    },
+  };
+
+  try {
+    await fetch(url, options)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+          const base64data = reader.result;
+          console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
+
+          //img element creation
+          const parentElement = document.getElementById('testtext');
+          const imgElement = document.createElement('img');
+          imgElement.id = 'genimg';
+          imgElement.src = base64data;
+          parentElement.append(imgElement);
+        };
+      });
+    // const result = await response.text();
+    // console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// new func
+// fetch rq
+
 // getUserPrompt();
 imageGen();
 getImg();
-hashProcessing();
+// hashProcessing();
+
+// document.getElementById('testImg').src = getImg();
 
 console.log('retrieval script connected...');
-// console.log(getUserPrompt());

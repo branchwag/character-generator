@@ -25,16 +25,16 @@ router.post('/imagegen', async (req, res) => {
   };
 
   try {
-    console.log(req);
-    console.log(req.body.prompt);
+    // console.log(req);
+    // console.log(req.body.prompt);
     const response = await fetch(url, options);
     const result = await response.text();
     const imgHash = JSON.parse(result);
     res.send(result);
-    console.log(result);
-    console.log(imgHash.hash);
+    // console.log(result);
+    // console.log(imgHash.hash);
     reqHash = imgHash.hash;
-    console.log(reqHash);
+    // console.log(reqHash);
   } catch (error) {
     console.error(error);
   }
@@ -49,16 +49,14 @@ router.get('/genimg', async (req, res) => {
     headers: {
       'X-RapidAPI-Key': `${imagapiKey}`,
       'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
+      'content-type': 'image/jpg',
     },
   };
 
   try {
     const response = await fetch(url, options);
-    const result = await response;
-    encodeUrl = btoa(url);
-    res.send(encodeUrl);
-    console.log(result);
-    console.log(encodeUrl);
+    const result = await response.text();
+    res.send(result);
   } catch (error) {
     console.error(error);
   }
