@@ -106,7 +106,7 @@ const getImg = async () => {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'f0f29904e6mshef2e6c564d6894dp1e667djsnc65327931468',
+      'X-RapidAPI-Key': 'fba584639bmshb8b1b5ed5eef2b8p1188a0jsnf2b23376c879',
       'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
     },
   };
