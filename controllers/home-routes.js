@@ -75,4 +75,17 @@ router.get('/output', (req, res) => {
     loggedIn: req.session.loggedIn,
   });
 });
+
+router.get('/output/:id', (req, res) => {
+
+  // query database for specific character id
+  const characterData = {
+    id: req.params.id
+  };
+  // render your single character output template with character data
+  res.render('partials/single-output', {
+    loggedIn: req.session.loggedIn,
+    data: characterData
+  });
+});
 module.exports = router;
