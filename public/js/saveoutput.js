@@ -47,7 +47,7 @@ function SaveHandler(event) {
   submitButton.remove();
   const regenEl = document.querySelector('#regen');
   regenEl.remove();
-  const backstoryEl = document.querySelector('#backstoryoutput');
+  // const backstoryEl = document.querySelector('#backstoryoutput');
   const outputEl = document.querySelector('.output');
   const newElement = document.createElement('p');
   newElement.id = 'savetext';
