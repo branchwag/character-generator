@@ -253,8 +253,7 @@ img {
 }
 
 #cardbox {
-  flex-wrap: wrap;
-  flex-flow: row;
+  flex-flow: wrap;
 }
 
 .character-cards {
