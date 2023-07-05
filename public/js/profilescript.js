@@ -23,6 +23,7 @@ const getCharByID = async () => {
         let cardbox = document.querySelector('#cardbox');
         //make a div
         let newCard = document.createElement('div');
+        newCard.classList.add("character-cards")
         newCard.id = `'card-${i + 1}'`;
         // console.log(newCard.id);
         newCard.innerHTML = `
