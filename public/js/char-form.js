@@ -29,6 +29,7 @@ const collectCharData = async () => {
       console.log('all good');
     } else {
       console.log('unsuccessful post request');
+      console.error(addChar);
     }
   } else {
     alert('Gender, race, and class are required fields');

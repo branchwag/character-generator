@@ -12,10 +12,7 @@ const getUserPrompt = async () => {
     },
   };
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/characters',
-      options,
-    );
+    const response = await fetch('/api/characters', options);
     const data = await response.json();
     const arrayLength = data.length;
     const lastCharacter = data[arrayLength - 1];
@@ -57,10 +54,7 @@ const imageGen = async () => {
 
   try {
     console.log(options.body);
-    const response = await fetch(
-      'http://localhost:3001/api/images/imagegen',
-      options,
-    );
+    const response = await fetch('/api/images/imagegen', options);
     const result = await response.text();
     const imgHash = JSON.parse(result);
     console.log(result);
@@ -80,10 +74,7 @@ const hashProcessing = async () => {
     },
   };
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/images/hashes',
-      options,
-    );
+    const response = await fetch('/api/images/hashes', options);
     const result = await response.json();
     console.log(result);
     const lineForHash = result.image;
