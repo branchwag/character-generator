@@ -14,6 +14,7 @@
 * {
   /* font-family: 'Homemade Apple', cursive; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
 }
 
 #pagetitle {
@@ -39,7 +40,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: var(--quatrinary);
+  background-image: url('../assets/images/sj-objio-XFWiZTa2Ub0-unsplash.jpg');
 }
 
 a {
@@ -69,6 +70,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  
 }
 
 aside {
@@ -81,7 +83,7 @@ aside {
 
 nav {
   display: flex;
-  background-color: var(--secondary);
+  background-color: var(--quatrinary);
 }
 
 nav a {
@@ -89,22 +91,24 @@ nav a {
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
+  font-weight: 600;
 }
 
 nav a:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--light);
+  text-decoration: none;
+  background-color: var(--secondary);
 }
 
 .gallery {
   flex: 4;
-  background-color: #fff;
+  background-color: var(--secondary);
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-}
+} 
 
 .btn-no-style {
   color: var(--light);
@@ -114,6 +118,7 @@ nav a:hover {
   background: none;
   border: none;
   font-size: 100%;
+  font-weight: 600;
   /* 
   
   padding: 0px;
@@ -125,8 +130,9 @@ nav a:hover {
   margin-top: 14px; */
 }
 .btn-no-style:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--light);
+  font-weight: 600;
+  background-color: var(--secondary);
 }
 
 img {
