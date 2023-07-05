@@ -3,7 +3,7 @@
 //results of GET request get make into queries for backstory and char name
 //using the below endpoint to test for now
 
-//http://localhost:3001/api/characters
+///api/characters
 
 //JSON for testing below for easy copy/paste via insomnia
 
@@ -26,10 +26,7 @@ const getBackstoryPrompt = async () => {
   };
 
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/characters',
-      options,
-    );
+    const response = await fetch('/api/characters', options);
     const data = await response.json();
     // console.log(data);
     // console.log(data);
@@ -81,10 +78,7 @@ const getNamePrompt = async () => {
   };
 
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/characters',
-      options,
-    );
+    const response = await fetch('/api/characters', options);
     const data = await response.json();
     // console.log(data);
     // console.log(data.length);
@@ -138,10 +132,7 @@ const getBackstory = async () => {
   };
 
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/chatgpt/getbackstory',
-      options,
-    );
+    const response = await fetch('/api/chatgpt/getbackstory', options);
     const data = await response.json();
     // console.log(data);
     // console.log(data.choices[0].text);
@@ -167,10 +158,7 @@ const getName = async () => {
   };
 
   try {
-    const response = await fetch(
-      'http://localhost:3001/api/chatgpt/namegen',
-      options,
-    );
+    const response = await fetch('/api/chatgpt/namegen', options);
     const data = await response.json();
     // console.log(data);
     // console.log(data.choices[0].text);
