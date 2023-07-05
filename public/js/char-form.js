@@ -40,7 +40,7 @@ function charFormHandler(event) {
   console.log('clicked');
   collectCharData();
   // loadOutputPage();
-  window.location.href = 'http://localhost:3001/output';
+  // window.location.href = 'http://localhost:3001/output';
 }
 
 submitButton.addEventListener('click', charFormHandler);
