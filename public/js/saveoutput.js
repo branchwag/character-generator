@@ -3,6 +3,28 @@
 // const charBackstory = charBackstoryEl.textContent;
 const submitButton = document.querySelector('#save');
 
+const getNumber = async () => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const response = await fetch('/api/characters', options);
+    const data = await response.json();
+
+    const arrayLength = data.length;
+    const lastCharacter = data[arrayLength - 1];
+    console.log(lastCharacter.id);
+    // console.log(typeof lastCharacter);
+    return lastCharacter.id;
+  } catch (error) {
+    console.error();
+  }
+};
+
 const collectCharData = async () => {
   const charNameEl = document.querySelector('#genname');
   const charBackstoryEl = document.querySelector('#backstoryoutput');
@@ -27,9 +49,13 @@ const collectCharData = async () => {
   };
 
   try {
-    const response = await fetch('/api/characters/1', options);
+    const number = await getNumber();
+    const response = await fetch(`/api/characters/${number}`, options);
     const data = await response.json();
+    const arrayLength = data.length;
+    const lastCharacter = data[arrayLength - 1];
     console.log(data);
+    console.log(lastCharacter);
     // console.log(data.choices[0].text);
     //add in a bit of text to say that result was saved
   } catch (error) {
@@ -57,3 +83,4 @@ function SaveHandler(event) {
 submitButton.addEventListener('click', SaveHandler);
 
 console.log('save script connected');
+console.log(getNumber());
