@@ -8,10 +8,10 @@
   </head>
 
 <body>
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
+<div class="container">
+  
+    <h2>Welcome, {{name.username}}!</h2>
+  
 </div>
 {{!-- maybe we can link to previous chats? --}}
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -31,7 +31,7 @@
     <div class="card h-100">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title" id="card-2">{{name}}'s Characters</h5>
+        <h5 class="card-title" id="card-2">{{name.username}}'s Characters</h5>
         <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
       </div>
       <div class="card-footer">
@@ -43,7 +43,7 @@
     <div class="card h-100">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{name}}'s Characters</h5>
+        <h5 class="card-title">{{name.username}}'s Characters</h5>
         <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
       </div>
       <div class="card-footer">
