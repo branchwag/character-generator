@@ -1,6 +1,6 @@
 // remove console logs for url, response, result
 let imgUrl;
-let genhash;
+// let genhash;
 
 // getUserPrompt
 
@@ -120,21 +120,14 @@ const getImg = async () => {
           parentElement.append(imgElement);
         };
       });
-    // const result = await response.text();
-    // console.log(result);
   } catch (error) {
     console.error(error);
   }
 };
 
-// new func
-// fetch rq
-
 // getUserPrompt();
 imageGen();
 getImg();
 // hashProcessing();
-
-// document.getElementById('testImg').src = getImg();
 
 console.log('retrieval script connected...');
