@@ -56,8 +56,10 @@ a:visited {
 header {
   padding: 40px;
   text-align: center;
-  background: var(--primary);
+  /* background: var(--primary); */
   color: var(--light);
+  background-image: url('../assets/images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg');
+  background-size: cover;
   /* background-image: url('../images/kiwihug-3gifzboyZk0-unsplash.jpg'); */
 }
 
