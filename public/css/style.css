@@ -201,6 +201,10 @@ img {
   align-items: center;
 }
 
+#user-greeting {
+  align-content: center;
+}
+
 .greeting {
   font-size: 2rem;
   margin: 1rem;
