@@ -96,10 +96,22 @@ nav a:hover {
   background-color: var(--dark);
 }
 
+#login-text {
+  margin: 20px
+}
+
+h3 {
+  margin: 0
+}
+
+.form-group {
+  margin: 0
+}
+
 .gallery {
   flex: 4;
   background-color: #fff;
-  padding: 50px;
+  padding: 0, 50px, 50px, 50px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -225,3 +237,8 @@ img {
   height: 500px;
   width: 500px;
 }
+
+.row {
+  align-items: start;
+}
+
