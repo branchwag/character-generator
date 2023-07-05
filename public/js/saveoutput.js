@@ -57,4 +57,4 @@ function SaveHandler(event) {
 
 submitButton.addEventListener('click', SaveHandler);
 
-console.log('script connected');
+console.log('save script connected');

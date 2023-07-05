@@ -1,4 +1,4 @@
-const chatgptkey = process.env.API_KEY;
+const chatgptkey = process.env.CHATAPI_KEY;
 const router = require('express').Router();
 
 //http://localhost:3001/api/chatgpt/namegen
