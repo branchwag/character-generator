@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Character } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
@@ -73,6 +73,17 @@ router.get('/char-form', (req, res) => {
 router.get('/output', (req, res) => {
   res.render('partials/output', {
     loggedIn: req.session.loggedIn,
+  });
+});
+
+router.get('/output/:id', async (req, res) => {
+  // query database for specific character id
+  const characterData = await Character.findByPk(req.params.id);
+  // render your single character output template with character data
+  console.log(characterData.get({ plain: true }));
+  res.render('partials/single-output', {
+    loggedIn: req.session.loggedIn,
+    data: characterData.get({ plain: true }),
   });
 });
 module.exports = router;

@@ -256,6 +256,7 @@ img {
   min-width: 250px;
 }
 
+
 #cardbox {
   flex-wrap: wrap;
   flex-flow: row;
@@ -264,4 +265,12 @@ img {
 .character-cards {
   justify-content: space-around;
   flex-direction: row;
+
+#submitBtn {
+  margin-top: 15px;
+}
+
+#char-form-container {
+  margin: 20px
+
 }
