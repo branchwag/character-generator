@@ -23,8 +23,7 @@ const getCharByID = async () => {
         newCard.id = `'card-${i + 1}'`;
         console.log(newCard.id);
         newCard.innerHTML = `
-        <div class="col">
-            <div class="card h-100">
+        <div class="card w-40">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title" id=${newCard.id}></h5>
@@ -32,7 +31,6 @@ const getCharByID = async () => {
             </div>
             <div class="card-footer">
                 <small class="text-body-secondary">Last updated 3 mins ago</small>
-            </div>
             </div>
         </div>`;
         cardbox.append(newCard);
