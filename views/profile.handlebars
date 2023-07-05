@@ -12,16 +12,15 @@
 <div class="container" id="user-greeting">
   
     <h2 class="text-center">Welcome, {{name.username}}!</h2>
-  
+
 </div>
 {{#if loggedIn}}
-
       <a href='#' onclick='loadCharForm()'><button class='build-char btn btn-info'>Build New
           Character</button></a>
     {{/if}}
 
 {{!-- maybe we can link to previous chats? --}}
-<div class="row row-cols-1 row-cols-md-3 g-4" id="cardbox">
+<div class="card-body" id="cardbox">
   {{!-- <div class="col">
             <div class="card h-100">
             <img src="..." class="card-img-top" alt="...">
