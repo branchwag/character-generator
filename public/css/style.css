@@ -123,6 +123,8 @@ h3 {
   align-items: center;
 } 
 
+
+
 .btn-no-style {
   color: var(--light);
   padding: 14px 20px;
@@ -252,4 +254,3 @@ img {
 .character-card {
   background: lemonchiffon;
 }
-
