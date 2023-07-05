@@ -39,7 +39,8 @@ function charFormHandler(event) {
   event.preventDefault();
   console.log('clicked');
   collectCharData();
-  // loadOutputPage()
+  // loadOutputPage();
+  window.location.href = 'http://localhost:3001/output';
 }
 
 submitButton.addEventListener('click', charFormHandler);
