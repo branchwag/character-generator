@@ -51,6 +51,7 @@ Character.init(
     image_link: {
       type: DataTypes.STRING,
       allowNull: true,
+      length: 100000,
     },
   },
   {
