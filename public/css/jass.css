@@ -1116,7 +1116,7 @@ form {
 form .form-group {
   display: block;
   width: 100%;
-  margin: 0.625rem 0;
+  /* margin: 0.625rem 0; */
 }
 
 form .form-input,

@@ -100,10 +100,23 @@ nav a:hover {
   background-color: var(--secondary);
 }
 
+#login-text {
+  margin: 20px
+}
+
+h3 {
+  margin: 0
+}
+
+.form-group {
+  margin: 0
+}
+
 .gallery {
   flex: 4;
-  background-color: var(--secondary);
-  padding: 50px;
+  background-color: #fff;
+  padding: 0, 50px, 50px, 50px;
+
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -232,6 +245,11 @@ img {
   width: 500px;
 }
 
+.row {
+  align-items: start;
+}
+
 .character-card {
   background: lemonchiffon;
 }
+
