@@ -14,7 +14,6 @@
 * {
   /* font-family: 'Homemade Apple', cursive; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
 }
 
 #pagetitle {
@@ -70,7 +69,6 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  
 }
 
 aside {
@@ -101,15 +99,15 @@ nav a:hover {
 }
 
 #login-text {
-  margin: 20px
+  margin: 20px;
 }
 
 h3 {
-  margin: 0
+  margin: 0;
 }
 
 .form-group {
-  margin: 0
+  margin: 0;
 }
 
 .gallery {
@@ -121,9 +119,7 @@ h3 {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-} 
-
-
+}
 
 .btn-no-style {
   color: var(--light);
@@ -256,7 +252,6 @@ img {
   min-width: 250px;
 }
 
-
 #cardbox {
   flex-wrap: wrap;
   flex-flow: row;
@@ -265,12 +260,12 @@ img {
 .character-cards {
   justify-content: space-around;
   flex-direction: row;
+}
 
 #submitBtn {
   margin-top: 15px;
 }
 
 #char-form-container {
-  margin: 20px
-
+  margin: 20px;
 }
