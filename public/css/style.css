@@ -243,6 +243,11 @@ img {
   width: 500px;
 }
 
+#savedimg {
+  height: 500px;
+  width: 500px;
+}
+
 .row {
   align-items: start;
 }
