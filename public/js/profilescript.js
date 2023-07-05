@@ -29,7 +29,7 @@ const getCharByID = async () => {
         <div class="card w-25 character-card">
             <div class="card-body">
                 <h5 class="card-title" id=${newCard.id}>${data[i].name}</h5>
-                <a href="http://localhost:3001/api/characters/9" class="btn btn-primary" role="button">Click Here!</a>
+                <a href="/output/${i}" class="btn btn-primary" role="button">Click Here!</a>
             </div>
         </div>`;
         cardbox.append(newCard);
