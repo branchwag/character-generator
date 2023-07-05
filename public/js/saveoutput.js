@@ -54,6 +54,7 @@ function SaveHandler(event) {
   newElement.textContent = 'Legend Saved!';
   outputEl.append(newElement);
   collectCharData();
+  document.location.replace('/profile');
 }
 
 submitButton.addEventListener('click', SaveHandler);
