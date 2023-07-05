@@ -17,12 +17,21 @@ const getUserPrompt = async () => {
       options,
     );
     const data = await response.json();
+    const arrayLength = data.length;
+    const lastCharacter = data[arrayLength - 1];
     console.log(data[0]);
-    let charGender = data[0].character_gender;
-    let charHair = data[0].hair_color;
-    let charEyes = data[0].eye_color;
+    let charGender = lastCharacter.character_gender;
+    let charHair = lastCharacter.hair_color;
+    let charEyes = lastCharacter.eye_color;
+    let charRace = lastCharacter.race.race_name;
+    let charClass = lastCharacter.class.class_name;
+    //added char race and class here as it was missing before
     return (
       charGender +
+      ' ' +
+      charRace +
+      ' ' +
+      charClass +
       ' fantasy character with ' +
       charHair +
       ' hair and ' +
@@ -125,9 +134,9 @@ const getImg = async () => {
   }
 };
 
-// getUserPrompt();
-imageGen();
-getImg();
+getUserPrompt();
+// imageGen();
+// getImg(); GET IMG should be last function to run
 // hashProcessing();
 
 console.log('retrieval script connected...');
