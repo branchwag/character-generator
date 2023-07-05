@@ -12,9 +12,14 @@ const getCharByID = async () => {
     );
     const data = await response.json();
     console.log(data);
-    console.log(data[0]);
-    let cardTitle1 = document.querySelector('#card-1');
-    cardTitle1.innerHTML = data[0].character_gender;
+    // console.log(data[0]);
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].name.length > 1) {
+        //console.log(data[i].eye_color);
+        let cardTitle1 = document.querySelector('#card-1');
+        cardTitle1.innerHTML = data[i].name;
+      }
+    }
   } catch (error) {
     console.error();
   }
