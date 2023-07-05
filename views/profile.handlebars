@@ -14,68 +14,47 @@
   
 </div>
 {{!-- maybe we can link to previous chats? --}}
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title" id="card-1"></h5>
-        <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title" id="card-2">{{name.username}}'s Characters</h5>
-        <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{name.username}}'s Characters</h5>
-        <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
+<div class="row row-cols-1 row-cols-md-3 g-4" id="cardbox">
+  {{!-- <div class="col">
+            <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="card-1"></h5>
+                <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="card-1"></h5>
+                <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="card-1"></h5>
+                <a href="/output?characterId={{character.id}}" class="btn btn-primary" role="button">Click Here!</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </div>
+            </div>
+        </div> --}}
 </div>
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
-      <script>const getCharByID = async () => {
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  try {
-    const response = await fetch(
-      'http://localhost:3001/api/characters/',
-      options,
-    );
-    const data = await response.json();
-    console.log(data);
-    console.log(data[0]);
-    let cardTitle1 = document.querySelector('#card-1');
-    cardTitle1.innerHTML = data[0].character_gender;
-  } catch (error) {
-    console.error();
-  }
-};
-getCharByID();</script>
+      <script src='/js/profilescript.js'></script>
     {{/if}}
 </body>
 
