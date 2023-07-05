@@ -112,6 +112,12 @@ const getImg = async () => {
           const base64data = reader.result;
           console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
 
+          //remove old image
+          if (document.getElementById('genimg')) {
+            const oldImg = document.getElementById('genimg');
+            oldImg.remove();
+          }
+
           //img element creation
           const parentElement = document.getElementById('testtext');
           const imgElement = document.createElement('img');
