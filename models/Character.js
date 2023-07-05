@@ -46,12 +46,12 @@ Character.init(
     backstory: {
       type: DataTypes.TEXT,
       allowNull: true,
-      length: 2000,
+      length: 'medium',
     },
     image_link: {
       type: DataTypes.STRING,
       allowNull: true,
-      length: 100000,
+      length: 'medium',
     },
   },
   {

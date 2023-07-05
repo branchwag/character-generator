@@ -18,7 +18,7 @@ const collectCharData = async () => {
     method: 'PUT',
     body: JSON.stringify({
       name: charName.trim(),
-      backstory: charBackstory.trim().slice(0, 255),
+      backstory: charBackstory.trim(), //.slice(0, 255),
       // image_link: charImg will go here,
     }),
     headers: {
@@ -48,10 +48,11 @@ function SaveHandler(event) {
   const regenEl = document.querySelector('#regen');
   regenEl.remove();
   const backstoryEl = document.querySelector('#backstoryoutput');
+  const outputEl = document.querySelector('.output');
   const newElement = document.createElement('p');
   newElement.id = 'savetext';
   newElement.textContent = 'Legend Saved!';
-  backstoryEl.append(newElement);
+  outputEl.append(newElement);
   collectCharData();
 }
 
