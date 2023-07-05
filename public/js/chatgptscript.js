@@ -165,7 +165,7 @@ const getName = async () => {
     //add in a bit of text for the user to continue the story since there is not a clean way for Chatgpt to conclude output (sentence ending)
     const pElement = document.createElement('p');
     pElement.id = 'genname';
-    pElement.textContent = data.choices[0].text;
+    pElement.textContent = data.choices[0].text.replace('.', '');
     parentElementName.append(pElement);
   } catch (error) {
     console.error();
