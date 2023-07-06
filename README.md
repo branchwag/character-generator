@@ -9,6 +9,8 @@ Provide a short description explaining the what, why, and how of your project. U
 - What problem does it solve?
 - What did you learn?
 
+With AI technology now avaliable, we wanted to use text and image generation to dynamically create character ideas for users in need of some inpiration. Essentially this app is the perfect solution for writer's block!
+
 ## Table of Contents (Optional)
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
