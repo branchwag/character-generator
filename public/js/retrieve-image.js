@@ -1,5 +1,6 @@
 // remove console logs for url, response, result
 let imgUrl;
+let comparisonHash;
 // let genhash;
 
 // getUserPrompt
@@ -40,8 +41,32 @@ const getUserPrompt = async () => {
   }
 };
 
+const hashProcessing = async (imgHash) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const response = await fetch('/api/images/hashes', options);
+    const result = await response.json();
+    console.log(result);
+    grabbedHash = await imgHash.hash;
+    console.log('grabbing hash ... ' + grabbedHash);
+    imgUrl = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${grabbedHash}&returnType=image`;
+    console.log('generated url ' + imgUrl);
+    comparisonHash = imgUrl;
+    return imgUrl, comparisonHash;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// /api/images/genimg
+
 // /api/images/imagegen
-const imageGen = async () => {
+const imageLoad = setInterval(async () => {
   const options = {
     method: 'POST',
     body: new URLSearchParams({
@@ -53,87 +78,71 @@ const imageGen = async () => {
   };
 
   try {
-    console.log(options.body);
     const response = await fetch('/api/images/imagegen', options);
     const result = await response.text();
     const imgHash = JSON.parse(result);
-    console.log(result);
-    console.log(imgHash.hash);
-    // return (genhash = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${(genhash =
-    //   imgHash.hash)}&returnType=image`);
+
+    console.log(imgHash.message);
+
+    if (imgHash.message === 'File is ready.') {
+      hashProcessing(imgHash);
+      console.log('File ready ... results = ' + imgHash.hash);
+      clearInterval(imageLoad);
+    }
   } catch (error) {
     console.error(error);
   }
-};
+}, 5000);
 
-const hashProcessing = async () => {
+const grabImage = setInterval(async () => {
+  const url = imgUrl;
   const options = {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  try {
-    const response = await fetch('/api/images/hashes', options);
-    const result = await response.json();
-    console.log(result);
-    const lineForHash = result.image;
-    console.log(typeof lineForHash);
-    console.log(lineForHash.length);
-    grabbedHash = result.image[lineForHash.length - 1].hash;
-    console.log(grabbedHash);
-    imgUrl = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${grabbedHash}&returnType=image`;
-    console.log(imgUrl);
-    return imgUrl;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-// /api/images/genimg
-
-const getImg = async () => {
-  const url = await hashProcessing();
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'fba584639bmshb8b1b5ed5eef2b8p1188a0jsnf2b23376c879',
+      'X-RapidAPI-Key': '1caa94a71dmsha9395b4911a33bdp1fbd31jsn7e05268806c3',
       'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
     },
   };
 
   try {
-    await fetch(url, options)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = () => {
-          const base64data = reader.result;
-          console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
+    if (imgUrl === comparisonHash) {
+      clearInterval(grabImage);
+      await fetch(url, options)
+        .then((response) => response.blob())
+        .then((blob) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(blob);
+          reader.onloadend = () => {
+            const base64data = reader.result;
+            console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
 
-          //remove old image
-          if (document.getElementById('genimg')) {
-            const oldImg = document.getElementById('genimg');
-            oldImg.remove();
-          }
-
-          //img element creation
-          const parentElement = document.getElementById('testtext');
-          const imgElement = document.createElement('img');
-          imgElement.id = 'genimg';
-          imgElement.src = base64data;
-          parentElement.append(imgElement);
-        };
-      });
+            //img element creation
+            const parentElement = document.getElementById('testtext');
+            const imgElement = document.createElement('img');
+            imgElement.id = 'genimg';
+            imgElement.src = base64data;
+            parentElement.append(imgElement);
+          };
+        });
+    } else if (imgUrl !== comparisonHash) {
+      console.log('image url ' + imgUrl);
+      console.log('comparison url' + comparisonHash);
+      clearInterval(grabImage);
+    }
   } catch (error) {
     console.error(error);
   }
-};
+}, 10000);
 
-console.log(getUserPrompt());
-imageGen();
-getImg(); //GET IMG should be last function to run
+// render img on page
+
+// get message status
+
+// get img
+
+// console.log(getUserPrompt());
+// imageGen();
+// getImg(); //GET IMG should be last function to run
 // hashProcessing();
 
 console.log('retrieval script connected...');
