@@ -25,7 +25,7 @@ const collectCharData = async () => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (addChar.ok) {
-      console.log('all good');
+      // console.log('all good');
       const getUserPrompt = async () => {
         const options = {
           method: 'GET',
@@ -57,7 +57,7 @@ const collectCharData = async () => {
             ' eyes'
           );
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       };
       const imageGen = async () => {
@@ -72,14 +72,14 @@ const collectCharData = async () => {
         };
 
         try {
-          console.log(options.body);
+          // console.log(options.body);
           const response = await fetch('/api/images/imagegen', options);
           const result = await response.text();
           const imgHash = JSON.parse(result);
-          console.log(result);
-          console.log(imgHash.hash);
+          // console.log(result);
+          // console.log(imgHash.hash);
         } catch (error) {
-          console.error(error);
+          // console.error(error);
         }
       };
       imageGen();
@@ -98,11 +98,11 @@ const collectCharData = async () => {
 
 function charFormHandler(event) {
   event.preventDefault();
-  console.log('clicked');
+  // console.log('clicked');
   collectCharData();
   // loadOutputPage()
 }
 
 submitButton.addEventListener('click', charFormHandler);
 
-console.log('green eggs and ham');
+// console.log('green eggs and ham');
