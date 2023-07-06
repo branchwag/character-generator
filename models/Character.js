@@ -49,7 +49,7 @@ Character.init(
       length: 'medium',
     },
     image_link: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
       length: 'medium',
     },
