@@ -98,6 +98,14 @@ const collectCharData = async () => {
 
 function charFormHandler(event) {
   event.preventDefault();
+  const submitEl = document.querySelector('#submitBtn');
+  submitEl.remove();
+
+  const outputEl = document.querySelector('#form');
+  const newElement = document.createElement('p');
+  newElement.id = 'savetext';
+  newElement.textContent = 'Loading, please wait.';
+  outputEl.append(newElement);
   // console.log('clicked');
   collectCharData();
   // loadOutputPage()
