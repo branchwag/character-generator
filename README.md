@@ -2,7 +2,7 @@
 
 ## Description
 
-The motivation for this project was our love for RPG games and our nerdy backgrounds. Whether its for fun or if you need to create characters on the fly for your stories, this app is perfect. By providing a quick and convenient tool to generate diverse and intriguing characters, this app empowers users to overcome creative blocks and save time. We designed this app to offer a wide range of customizable race, backgrounds, and classes, ensuring that anyone can bring their envisioned characters to life with just a few taps. there were ups and downs throughout this whole project, one thing we learned quite quickly was to scarcely use our API resources as they diminish rapidly.
+The motivation for this project was our love for RPG games and our nerdy backgrounds. Whether its for fun or if you need to create characters on the fly for your stories, this app is perfect. By providing a quick and convenient tool to generate diverse and intriguing characters with back stories, this app empowers users to overcome creative blocks and save time. We designed this app to offer a wide range of customizable race, backgrounds, and classes, ensuring that anyone can bring their envisioned characters to life with just a few taps. there were ups and downs throughout this whole project, one thing we learned quite quickly was to scarcely use our API resources as they diminish rapidly.
 
 ## Installation
 
@@ -18,6 +18,17 @@ The following image shows how you can!
 After signing up you will be redirected to a profile page where you can click the "Build New Character" button to start creating, and you will also see previous characters that were saved.
 
 <img src="./img/ProfilePage.png" alt= "Profile Page">
+
+When you click the build new character button it will take you to the character form where you can personalize. You can give it a gender, race, class, eye color, and hair color. After all that you can click the Discover your character button to see the results!
+
+<img src="./img/CharacterForm.png" alt= "Character Form">
+
+Now its all you've been waiting for! the final reveal of your characters image and name and cool backstory.
+After this you can either save the generated character or create another.
+
+<img src= " " alt= "output page >
+
+## Have fun messing around!
 
 ## Credits
 
