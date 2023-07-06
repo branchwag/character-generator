@@ -2,18 +2,7 @@
 
 ## Description
 
-The motivation for this project was our love for RPG games and our nerdy backgrounds. Whether its for fun or if you need to create characters on the fly for your stories, this app is perfect. By providing a quick and convenient tool to generate diverse and intriguing characters, this app empowers users to overcome creative blocks and save time. We designed this app to offer a wide range of customizable race, backgrounds, and classes, ensuring that anyone can bring their envisioned characters to life with just a few taps.
-
-- What did you learn?
-
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+The motivation for this project was our love for RPG games and our nerdy backgrounds. Whether its for fun or if you need to create characters on the fly for your stories, this app is perfect. By providing a quick and convenient tool to generate diverse and intriguing characters, this app empowers users to overcome creative blocks and save time. We designed this app to offer a wide range of customizable race, backgrounds, and classes, ensuring that anyone can bring their envisioned characters to life with just a few taps. there were ups and downs throughout this whole project, one thing we learned quite quickly was to scarcely use our API resources as they diminish rapidly.
 
 ## Installation
 
