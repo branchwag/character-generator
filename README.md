@@ -26,17 +26,29 @@ When you click the build new character button it will take you to the character 
 Now its all you've been waiting for! the final reveal of your characters image and name and cool backstory.
 After this you can either save the generated character or create another.
 
-<img src= " " alt= "output page >
+<img src="./img/Output.png" alt= "OutputPage">
 
 ## Have fun messing around!
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+Firstly our instructors Ben and Max helped us loads, we cant even begin to go in details!
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+The following sources were used to help understand the way we have to implement the APIs we needed.
 
-If you followed tutorials, include links to those here as well.
+Chat GPT API- https://www.youtube.com/watch?v=uRQH2CFvedY
+
+Docs to help with the image API-
+
+Leonardo- https://docs.leonardo.ai/reference/getuserself
+
+The Next Leg- https://www.thenextleg.io/docs/v2/getting-started
+
+Rapid API- https://rapidapi.com/piero.porro/api/ai-image-generator-from-a-prompt-using-openai-api/
+
+Tips to not exhaust our API credits- https://www.elastic.io/integration-best-practices/api-rate-limiting-techniques-workarounds/#:~:text=It%20is%20possible%2C%20though%2C%20to,connection%20as%20an%20actual%20request
+
+Image we used for the header- https://unsplash.com/photos/E0AHdsENmDg
 
 ## License
 
