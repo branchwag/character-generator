@@ -99,7 +99,7 @@ const grabImage = setInterval(async () => {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '1caa94a71dmsha9395b4911a33bdp1fbd31jsn7e05268806c3',
+      'X-RapidAPI-Key': '39039e70a6mshdbb704a5dd7696ap1a11b7jsn86b2e034659e',
       'X-RapidAPI-Host': 'arimagesynthesizer.p.rapidapi.com',
     },
   };
@@ -111,10 +111,11 @@ const grabImage = setInterval(async () => {
         .then((response) => response.blob())
         .then((blob) => {
           const reader = new FileReader();
+          console.log(blob);
           reader.readAsDataURL(blob);
           reader.onloadend = () => {
             const base64data = reader.result;
-            // console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
+            console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
 
             //img element creation
             const parentElement = document.getElementById('testtext');
