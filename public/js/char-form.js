@@ -25,8 +25,68 @@ const collectCharData = async () => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (addChar.ok) {
-      document.location.replace('/output');
       console.log('all good');
+      const getUserPrompt = async () => {
+        const options = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/jsom',
+          },
+        };
+        try {
+          const response = await fetch('/api/characters', options);
+          const data = await response.json();
+          const arrayLength = data.length;
+          const lastCharacter = data[arrayLength - 1];
+          let charGender = lastCharacter.character_gender;
+          let charHair = lastCharacter.hair_color;
+          let charEyes = lastCharacter.eye_color;
+          let charRace = lastCharacter.race.race_name;
+          let charClass = lastCharacter.class.class_name;
+          //added char race and class here as it was missing before
+          return (
+            charGender +
+            ' ' +
+            charRace +
+            ' ' +
+            charClass +
+            ' fantasy character with ' +
+            charHair +
+            ' hair and ' +
+            charEyes +
+            ' eyes'
+          );
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      const imageGen = async () => {
+        const options = {
+          method: 'POST',
+          body: new URLSearchParams({
+            prompt: await getUserPrompt(),
+          }),
+          headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+          },
+        };
+
+        try {
+          console.log(options.body);
+          const response = await fetch('/api/images/imagegen', options);
+          const result = await response.text();
+          const imgHash = JSON.parse(result);
+          console.log(result);
+          console.log(imgHash.hash);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      imageGen();
+      console.log(getUserPrompt());
+      setTimeout(() => {
+        document.location.replace('/output');
+      }, 5000);
     } else {
       console.log('unsuccessful post request');
       console.error(addChar);
