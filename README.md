@@ -2,11 +2,8 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+The motivation for this project was our love for RPG games and our nerdy backgrounds. Whether its for fun or if you need to create characters on the fly for your stories, this app is perfect. By providing a quick and convenient tool to generate diverse and intriguing characters, this app empowers users to overcome creative blocks and save time. We designed this app to offer a wide range of customizable race, backgrounds, and classes, ensuring that anyone can bring their envisioned characters to life with just a few taps.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
 - What did you learn?
 
 ## Table of Contents (Optional)
