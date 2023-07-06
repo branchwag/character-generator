@@ -23,13 +23,14 @@ const getCharByID = async () => {
         let cardbox = document.querySelector('#cardbox');
         //make a div
         let newCard = document.createElement('div');
+        newCard.classList.add('character-cards');
         newCard.id = `'card-${i + 1}'`;
         // console.log(newCard.id);
         newCard.innerHTML = `
         <div class="card w-25 character-card">
             <div class="card-body">
                 <h5 class="card-title" id=${newCard.id}>${data[i].name}</h5>
-                <a href="http://localhost:3001/api/characters/9" class="btn btn-primary" role="button">Click Here!</a>
+                <a href="/output/${data[i].id}" class="btn btn-primary" role="button">Click Here!</a>
             </div>
         </div>`;
         cardbox.append(newCard);

@@ -1,0 +1,11 @@
+{{! <h1>HEYO</h1> }}
+{{!-- <h2>Character id: {{data.id}}</h2> --}}
+<img id='savedimg' src='{{data.image_link}}' onerror='hideImg()' />
+<p id='savednamefield'>{{data.name}}</p>
+<p id='savedbackstoryfield'>{{data.backstory}}</p>
+
+<script src='/js/outputsinglescript.js'></script>
+<script>
+  function hideImg() { document.getElementById("savedimg") .style.display =
+  "none"; }
+</script>

@@ -9,7 +9,7 @@ const getUserPrompt = async () => {
   const options = {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/jsom',
+      'Content-Type': 'application/json',
     },
   };
   try {

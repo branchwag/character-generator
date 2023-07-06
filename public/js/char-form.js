@@ -86,7 +86,7 @@ const collectCharData = async () => {
       console.log(getUserPrompt());
       setTimeout(() => {
         document.location.replace('/output');
-      }, 10000);
+      }, 5000);
     } else {
       console.log('unsuccessful post request');
       console.error(addChar);
