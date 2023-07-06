@@ -10,6 +10,15 @@ No installation is required to access this web page! Please refer to the followi
 
 ## Usage
 
+In order to use the app you need to first sign up and make an account.
+The following image shows how you can!
+
+<img src="./img/SignupPage.png" alt= "Signup Page">
+
+After signing up you will be redirected to a profile page where you can click the "Build New Character" button to start creating, and you will also see previous characters that were saved.
+
+<img src="./img/ProfilePage.png" alt= "Profile Page">
+
 ## Credits
 
 List your collaborators, if any, with links to their GitHub profiles.
