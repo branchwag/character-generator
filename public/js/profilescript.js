@@ -8,12 +8,12 @@ const getCharByID = async () => {
   try {
     const response = await fetch('/api/characters/', options);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     // console.log(data[0]);
-    console.log(data.length);
+    // console.log(data.length);
     for (let i = 0; i < data.length; i++) {
       if (typeof data[i].name === 'string') {
-        console.log(data[i].name);
+        // console.log(data[i].name);
         // console.log(data[2].name);
         // console.log(typeof data[2].name);
         // console.log(typeof data[8].name);
@@ -48,4 +48,4 @@ const getCharByID = async () => {
 };
 getCharByID();
 
-console.log('profile script is connected');
+// console.log('profile script is connected');

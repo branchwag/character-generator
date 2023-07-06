@@ -32,7 +32,7 @@ function getImageSrc() {
     // console.log('image found!');
     return document.querySelector('#genimg').src;
   } else {
-    console.log('no valid element');
+    // console.log('no valid element');
   }
 }
 
@@ -66,9 +66,9 @@ const collectCharData = async () => {
     const data = await response.json();
     const arrayLength = data.length;
     const lastCharacter = data[arrayLength - 1];
-    console.log(data);
-    console.log(lastCharacter);
-    console.log(data.choices[0].text);
+    // console.log(data);
+    // console.log(lastCharacter);
+    // console.log(data.choices[0].text);
     //add in a bit of text to say that result was saved
   } catch (error) {
     console.error();
@@ -77,7 +77,7 @@ const collectCharData = async () => {
 
 function SaveHandler(event) {
   event.preventDefault();
-  console.log('clicked');
+  // console.log('clicked');
   getImageSrc();
   //remove the submit button and replace with text that the character has been saved
   submitButton.remove();
@@ -95,5 +95,5 @@ function SaveHandler(event) {
 
 submitButton.addEventListener('click', SaveHandler);
 
-console.log('save script connected');
-console.log(getNumber());
+// console.log('save script connected');
+// console.log(getNumber());

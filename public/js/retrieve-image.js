@@ -37,7 +37,7 @@ const getUserPrompt = async () => {
       ' eyes'
     );
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -51,15 +51,15 @@ const hashProcessing = async (imgHash) => {
   try {
     const response = await fetch('/api/images/hashes', options);
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     grabbedHash = await imgHash.hash;
-    console.log('grabbing hash ... ' + grabbedHash);
+    // console.log('grabbing hash ... ' + grabbedHash);
     imgUrl = `https://arimagesynthesizer.p.rapidapi.com/get?hash=${grabbedHash}&returnType=image`;
-    console.log('generated url ' + imgUrl);
+    // console.log('generated url ' + imgUrl);
     comparisonHash = imgUrl;
     return imgUrl, comparisonHash;
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 };
 
@@ -82,11 +82,11 @@ const imageLoad = setInterval(async () => {
     const result = await response.text();
     const imgHash = JSON.parse(result);
 
-    console.log(imgHash.message);
+    // console.log(imgHash.message);
 
     if (imgHash.message === 'File is ready.') {
       hashProcessing(imgHash);
-      console.log('File ready ... results = ' + imgHash.hash);
+      // console.log('File ready ... results = ' + imgHash.hash);
       clearInterval(imageLoad);
     }
   } catch (error) {
@@ -114,7 +114,7 @@ const grabImage = setInterval(async () => {
           reader.readAsDataURL(blob);
           reader.onloadend = () => {
             const base64data = reader.result;
-            console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
+            // console.log(base64data); //GETS US A USEABLE BASE64 OUTPUT
 
             //img element creation
             const parentElement = document.getElementById('testtext');
@@ -125,8 +125,8 @@ const grabImage = setInterval(async () => {
           };
         });
     } else if (imgUrl !== comparisonHash) {
-      console.log('image url ' + imgUrl);
-      console.log('comparison url' + comparisonHash);
+      // console.log('image url ' + imgUrl);
+      // console.log('comparison url' + comparisonHash);
       clearInterval(grabImage);
     }
   } catch (error) {
@@ -145,4 +145,4 @@ const grabImage = setInterval(async () => {
 // getImg(); //GET IMG should be last function to run
 // hashProcessing();
 
-console.log('retrieval script connected...');
+// console.log('retrieval script connected...');
