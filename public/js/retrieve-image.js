@@ -66,7 +66,7 @@ const hashProcessing = async (imgHash) => {
 // /api/images/genimg
 
 // /api/images/imagegen
-const imageLoad = setInterval(async () => {
+const imageLoad = async () => {
   const options = {
     method: 'POST',
     body: new URLSearchParams({
@@ -78,7 +78,7 @@ const imageLoad = setInterval(async () => {
   };
 
   try {
-    const response = await fetch('/api/images/imagegen', options);
+    setInterval(const response = await fetch('/api/images/imagegen', options);
     const result = await response.text();
     const imgHash = JSON.parse(result);
 
@@ -87,12 +87,12 @@ const imageLoad = setInterval(async () => {
     if (imgHash.message === 'File is ready.') {
       hashProcessing(imgHash);
       // console.log('File ready ... results = ' + imgHash.hash);
-      clearInterval(imageLoad);
-    }
+      imageLoad();
+    })
   } catch (error) {
     console.error(error);
   }
-}, 5000);
+};
 
 const grabImage = setInterval(async () => {
   const url = imgUrl;
@@ -107,7 +107,7 @@ const grabImage = setInterval(async () => {
   try {
     if (imgUrl === comparisonHash) {
       clearInterval(grabImage);
-      await fetch(url, options)
+      fetch(url, options)
         .then((response) => response.blob())
         .then((blob) => {
           const reader = new FileReader();
