@@ -32,7 +32,7 @@ After this you can either save the generated character or create another.
 
 ## Credits
 
-Firstly our instructors Ben and Max helped us loads, we cant even begin to go in details!
+Firstly our instructors Ben and Max helped us loads. We would especially like to thank them for their help with the image generator API and the login functionality.
 
 The following sources were used to help understand the way we have to implement the APIs we needed.
 
