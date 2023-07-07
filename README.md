@@ -34,6 +34,8 @@ After this you can either save the generated character or create another.
 
 Firstly our instructors Ben and Max helped us loads. We would especially like to thank them for their help with the image generator API and the login functionality.
 
+We used files from Module 14 activities as the starter for our project and adapted them to achieve the functionality we desired.
+
 The following sources were used to help understand the way we have to implement the APIs we needed.
 
 Chat GPT API- https://www.youtube.com/watch?v=uRQH2CFvedY
@@ -47,6 +49,8 @@ The Next Leg- https://www.thenextleg.io/docs/v2/getting-started
 Rapid API- https://rapidapi.com/piero.porro/api/ai-image-generator-from-a-prompt-using-openai-api/
 
 Tips to not exhaust our API credits- https://www.elastic.io/integration-best-practices/api-rate-limiting-techniques-workarounds/#:~:text=It%20is%20possible%2C%20though%2C%20to,connection%20as%20an%20actual%20request
+
+The following stack overflow query and answer gave insight so that we could capture user input from our character form: https://stackoverflow.com/questions/62341048/javascript-queryselector-for-select-element. This was used in our public > js > char-form.js file, lines 10-14.
 
 Image we used for the header- https://unsplash.com/photos/E0AHdsENmDg
 

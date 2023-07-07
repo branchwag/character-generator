@@ -5,6 +5,7 @@ const hair = document.querySelector('#hair-color');
 const race = document.querySelector('#race');
 const charClass = document.querySelector('#class');
 
+// a stack overflow article pointed us to the selectedIndex value, please see README for the link
 const collectCharData = async () => {
   const character_gender = gender.value;
   const eye_color = eye.options[eye.selectedIndex].text;
